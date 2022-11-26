@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "poetry-stock"
+version = "0.1.0"
+description = ""
+authors = ["2044smile <2044smile@naver.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+django = "^4.1.3"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
