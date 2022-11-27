@@ -1,6 +1,12 @@
 # stock
 I use Django, Slack, Telegram and get stock information
 
+## Telegram
+1. Telethon 
+   1. 기존 채팅방의 대화를 가져오려고 하려면 token 키가 있어야 한다.
+2. python-telegram-bot
+   1. Add the bot to the desired group as administrator
+
 # env
 1. Poetry
    1. poetry install
