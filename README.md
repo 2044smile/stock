@@ -3,12 +3,9 @@ I use Django, Slack, Telegram and get stock information
 
 ## Plan
 1. Telethon 에서 텔레그램 채팅 가져오기 (O)
+2. django-telethon use (ing)[https://stackoverflow.com/questions/68976078/using-telethon-with-a-django-application]
 
 ## Telegram
-1. Telethon 
-   1. 기존 채팅방의 대화를 가져오려고 하려면 token 키가 있어야 한다.
-2. python-telegram-bot
-   1. Add the bot to the desired group as administrator
 
 ## env
 1. Poetry
