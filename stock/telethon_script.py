@@ -13,5 +13,5 @@ with TelegramClient('Tim', api_id, api_hash) as client:
     channel_entity = client.get_entity(channel_username1)
     print(channel_entity)
 
-    for message in client.get_messages(channel_username2, limit=10):
+    for message in client.get_messages(channel_username1, limit=10):
         print(message.message)
