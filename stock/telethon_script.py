@@ -1,6 +1,6 @@
 import os
 
-from telethon import TelegramClient
+from telethon.sync import TelegramClient
 
 
 api_id = os.getenv('TELETHON_API_ID')
