@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'stock',
+
+    'django_telethon',
 ]
 
 MIDDLEWARE = [
