@@ -27,6 +27,21 @@ argon2 = ["argon2-cffi (>=19.1.0)"]
 bcrypt = ["bcrypt"]
 
 [[package]]
+name = "django-telethon"
+version = "1.1.5"
+description = "Telethon for django"
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[package.dependencies]
+Django = ">=3.0"
+Telethon = ">=1.24.0,<2"
+
+[package.extras]
+dev = ["black", "flake8", "isort", "pre-commit", "whitenoise"]
+
+[[package]]
 name = "pyaes"
 version = "1.6.1"
 description = "Pure-Python Implementation of the AES block-cipher and common modes of operation"
@@ -87,7 +102,7 @@ python-versions = ">=2"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.10"
-content-hash = "71750416e7cb885e10557a2e9a19dc133143da31dfdcbc780f0e02630c94ea9b"
+content-hash = "ad69c52f6f715bc77e7781904d19e04e70e4d3a9b5a56fd7ee0c7914a7f8b16b"
 
 [metadata.files]
 asgiref = [
@@ -97,6 +112,10 @@ asgiref = [
 django = [
     {file = "Django-4.1.3-py3-none-any.whl", hash = "sha256:6b1de6886cae14c7c44d188f580f8ba8da05750f544c80ae5ad43375ab293cd5"},
     {file = "Django-4.1.3.tar.gz", hash = "sha256:678bbfc8604eb246ed54e2063f0765f13b321a50526bdc8cb1f943eda7fa31f1"},
+]
+django-telethon = [
+    {file = "django-telethon-1.1.5.tar.gz", hash = "sha256:ad1bb6a536ee84f43626e9cf743ff47de29f64deb87751dcca38bfe26afb653d"},
+    {file = "django_telethon-1.1.5-py3-none-any.whl", hash = "sha256:c1c36d4787bc877bd4af37afbbd847e51e8055f3d8a38ec41d3816836b77e2d3"},
 ]
 pyaes = [
     {file = "pyaes-1.6.1.tar.gz", hash = "sha256:02c1b1405c38d3c370b085fb952dd8bea3fadcee6411ad99f312cc129c536d8f"},
