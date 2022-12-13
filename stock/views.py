@@ -19,24 +19,26 @@ def telethon(request):
     API_HASH = os.getenv('TELETHON_API_HASH')
 
     if request.method == "POST":
-        print('Start')
         app, is_created = App.objects.update_or_create(
             api_id=API_ID,
             api_hash=API_HASH
         )
-        print(app)
         cs = ClientSession.objects.get(
             name="default",
         )
-        print(cs)
+        loop = asyncio.new_event_loop()
+        asyncio.set_event_loop(loop)
+
         target_user = "default"
-        telegram_client = TelegramClient(DjangoSession(client_session=cs), app.api_id, app.api_hash)
+        telegram_client = TelegramClient(DjangoSession(client_session=cs), app.api_id, app.api_hash, loop=loop)
         telegram_client.connect()
 
         if not telegram_client.is_user_authorized():
-            phone = input('Enter your phone number: ')
+            # phone = input('Enter your phone number: ')
+            phone = os.getenv('TELETHON_PHONE')
             telegram_client.send_code_request(phone)
-            code = input('Enter the code you received: ')
+            # code = input('Enter the code you received: ')
+            code = os.getenv('TELETHON_CODE')
             try:
                 telegram_client.sign_in(phone, code)
             except SessionPasswordNeededError:
