@@ -9,13 +9,13 @@ django.setup()
 from telethon.sync import TelegramClient
 
 
-api_id = os.getenv('TELETHON_API_ID')
-api_hash = os.getenv('TELETHON_API_HASH')
+API_ID = os.getenv('TELETHON_API_ID')
+API_HASH = os.getenv('TELETHON_API_HASH')
 channel_list = ['corevalue', 'FastStockNews']
 # channel_username1 = 'corevalue'  # 가치투자클럽
 # channel_username2 = 'FastStockNews'  # 주식 급등일보, 급동테마 대장주 탐색기
 
-with TelegramClient('Tim', api_id, api_hash) as client:
+with TelegramClient('Tim', API_ID, API_HASH) as client:
     # client.send_message('me', "Hello, myself!")
     for cl in channel_list:
         print(cl)
