@@ -18,6 +18,9 @@ def telethon(request):
     API_ID = os.getenv('TELETHON_API_ID')
     API_HASH = os.getenv('TELETHON_API_HASH')
 
+    channel_list = [os.getenv('channel_one'), os.getenv('channel_two')]
+    news_link = []
+
     if request.method == "POST":
         app, is_created = App.objects.update_or_create(
             api_id=API_ID,
@@ -47,10 +50,14 @@ def telethon(request):
 
         async def send():
             try:
-                await telegram_client.send_message(f'@{target_user}', 'Hello from django!')
+                # await telegram_client.send_message(f'@{target_user}', 'Hello from django!')
+                for cl in channel_list:
+                    await telegram_client.get_entity(cl)
+                    for message in await telegram_client.get_messages(cl, limit=10):
+                        news_link.append(message.message)
             except ValueError:
                 print(f'Sorry no {target_user} user was found')
 
         with telegram_client:
             telegram_client.loop.run_until_complete(send())
-        return HttpResponse('addChannel')
+        return HttpResponse(news_link)
