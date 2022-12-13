@@ -5,8 +5,10 @@ I use Django, Slack, Telegram and get stock information
 1. Telethon 에서 텔레그램 채팅 가져오기 (O)
 2. django-telethon use (ing)[https://stackoverflow.com/questions/68976078/using-telethon-with-a-django-application]
 
-## Telegram
-
+## django-telegram
+### problem
+1. 휴대폰 인증번호 없이 진행 되는 법 or 인증을 받지않고 지속적인 연결
+   * 현재는 휴대폰에서 인증번호를 받으면 값을 변경해서 실행하고 있음
 ## env
 1. Poetry
    1. poetry install
