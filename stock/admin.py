@@ -8,4 +8,4 @@ class ChannelAdmin(admin.ModelAdmin):
 
 @admin.register(Stock)
 class StockAdmin(admin.ModelAdmin):
-    list_display = ['channel', 'site_name', 'title', 'date']
+    list_display = ['channel', 'site_name', 'title', 'description', 'date']
