@@ -9,6 +9,7 @@ I use Django, Slack, Telegram and get stock information
 ### problem
 1. 휴대폰 인증번호 없이 진행 되는 법 or 인증을 받지않고 지속적인 연결
    * 현재는 휴대폰에서 인증번호를 받으면 값을 변경해서 실행하고 있음
+   * 서버가 종료되지 않으면 재인증은 필요없음
 ## env
 1. Poetry
    1. poetry install
