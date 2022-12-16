@@ -74,7 +74,7 @@ def telethon(request):
                             시간외특징주 와 같이 링크나 추가 설명이 없을 경우
 
                             Ex)
-                            '12월 15일 시간외특징주\n
+                            12월 15일 시간외특징주\n
                             https://cafe.naver.com/stockhunters/99194\n Posts that are only open to members
                             12월 15일 52주 신고가 및 급등락주\n
                             https://cafe.naver.com/stockhunters/99195' You can see it even if you are not a member
