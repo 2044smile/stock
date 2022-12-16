@@ -1,13 +1,13 @@
 import asyncio
 import os
-import sys
 
-from django.shortcuts import render
 from django.http.response import HttpResponse
 from telethon.sync import TelegramClient
 from django_telethon.sessions import DjangoSession
 from django_telethon.models import App, ClientSession
 from telethon.errors import SessionPasswordNeededError
+
+from stock.models import Channel, Stock
 
 
 def index(request):
@@ -51,10 +51,26 @@ def telethon(request):
         async def send():
             try:
                 # await telegram_client.send_message(f'@{target_user}', 'Hello from django!')
-                for cl in channel_list:
-                    await telegram_client.get_entity(cl)
-                    for message in await telegram_client.get_messages(cl, limit=10):
-                        news_link.append(message.message)
+                for channel in channel_list:
+                    obj = Channel.objects.get(name=channel)
+                    await telegram_client.get_entity(channel)
+                    for message in await telegram_client.get_messages(channel, limit=10):
+                        if message.media.webpage:
+                            title = message.media.webpage.title
+                            description = message.media.webpage.description
+                            site_name = message.media.webpage.site_name
+                            url = message.media.webpage.url
+                            Stock.objects.update_or_create(
+                                channel=obj,
+                                title=title,
+                                description=description,
+                                site_name=site_name,
+                                url=url,
+                                date=message.date
+                            )
+                            news_link.append(message.message)
+                        else:
+                            pass
             except ValueError:
                 print(f'Sorry no {target_user} user was found')
 
