@@ -31,6 +31,6 @@ I use Django, Slack, Telegram and get stock information
 <br>
 <br>
 <h3>20221226<br>
-I had a problem but I solved it.
+I had a problem but I solved it.<br>
 Let us start again.
 </h3>
