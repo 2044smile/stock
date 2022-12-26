@@ -24,3 +24,13 @@ I use Django, Slack, Telegram and get stock information
 
 ## Reference
 - https://docs.telethon.dev/en/stable/index.html
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<h3>20221226<br>
+I had a problem but I solved it.
+Let us start again.
+</h3>
