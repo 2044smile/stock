@@ -55,21 +55,22 @@ def telethon(request):
                     obj = Channel.objects.get(name=channel)
                     await telegram_client.get_entity(channel)
                     for message in await telegram_client.get_messages(channel, limit=10):
-                        if message.media.webpage:
-                            title = message.media.webpage.title
-                            description = message.media.webpage.description
-                            site_name = message.media.webpage.site_name
-                            url = message.media.webpage.url
-                            Stock.objects.update_or_create(
-                                channel=obj,
-                                title=title,
-                                description=description,
-                                site_name=site_name,
-                                url=url,
-                                date=message.date
-                            )
-                            news_link.append(message.message)
-                        elif message.media == None:
+                        try:
+                            if message.media.webpage:
+                                title = message.media.webpage.title
+                                description = message.media.webpage.description
+                                site_name = message.media.webpage.site_name
+                                url = message.media.webpage.url
+                                Stock.objects.update_or_create(
+                                    channel=obj,
+                                    title=title,
+                                    description=description,
+                                    site_name=site_name,
+                                    url=url,
+                                    date=message.date
+                                )
+                                news_link.append(message.message)
+                        except AttributeError:
                             """
                             시간외특징주 와 같이 링크나 추가 설명이 없을 경우
 
@@ -79,7 +80,20 @@ def telethon(request):
                             12월 15일 52주 신고가 및 급등락주\n
                             https://cafe.naver.com/stockhunters/99195' You can see it even if you are not a member
                             """
-                            pass
+                            msg_list = message.message.split('\n')
+                            if len(msg_list) != 3:
+                                print(msg_list)
+                                break
+
+                            Stock.objects.update_or_create(
+                                channel=obj,
+                                title=msg_list[0],
+                                description=msg_list[3],
+                                site_name="시간외 특징주",
+                                url=msg_list[1],
+                                date=message.date
+                            )
+                            news_link.append(msg_list[0])
             except ValueError:
                 print(f'Sorry no {target_user} user was found')
 
