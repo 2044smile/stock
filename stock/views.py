@@ -74,11 +74,11 @@ def telethon(request):
                             """
                             시간외특징주 와 같이 링크나 추가 설명이 없을 경우
 
-                            Ex)
-                            12월 15일 시간외특징주\n
-                            https://cafe.naver.com/stockhunters/99194\n Posts that are only open to members
-                            12월 15일 52주 신고가 및 급등락주\n
-                            https://cafe.naver.com/stockhunters/99195' You can see it even if you are not a member
+                            Ex by msg_list)
+                            12월 15일 시간외특징주\n  [0]
+                            https://cafe.naver.com/stockhunters/99194\n Posts that are only open to members [1]
+                            12월 15일 52주 신고가 및 급등락주\n  [2]
+                            https://cafe.naver.com/stockhunters/99195' You can see it even if you are not a member  [3]
                             """
                             msg_list = message.message.split('\n')
                             if len(msg_list) != 3:
@@ -88,9 +88,9 @@ def telethon(request):
                             Stock.objects.update_or_create(
                                 channel=obj,
                                 title=msg_list[0],
-                                description=msg_list[3],
+                                description=msg_list[2],
                                 site_name="시간외 특징주",
-                                url=msg_list[1],
+                                url=msg_list[3],
                                 date=message.date
                             )
                             news_link.append(msg_list[0])
