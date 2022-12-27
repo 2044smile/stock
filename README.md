@@ -15,6 +15,8 @@ I use Django, Slack, Telegram and get stock information
 **<span style="color:red;">가입을 안해도 되는 링크로 대체**<br>
 <br>
 **3. 비동기로 텔레그램의 데이터를 실시간으로 가져올 수 있어야 한다.**
+
+**4. 이상한 오류가 나오는지 수시로 확인**
 ## env
 1. Poetry
    1. poetry install
