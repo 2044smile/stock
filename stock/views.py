@@ -85,15 +85,19 @@ def telethon(request):
                                 print(msg_list)
                                 break
 
+                            title = msg_list[0]
+                            description = msg_list[2]
+                            url = msg_list[3]
+
                             Stock.objects.update_or_create(
                                 channel=obj,
-                                title=msg_list[0],
-                                description=msg_list[2],
+                                title=title,
+                                description=description,
                                 site_name="시간외 특징주",
-                                url=msg_list[3],  # Naver Cafe must sign up in the case of 'msg_list[1]'
+                                url=url,  # Naver Cafe must sign up in the case of 'msg_list[1]'
                                 date=message.date
                             )
-                            news_link.append(msg_list[0])
+                            news_link.append(message.message)
             except ValueError:
                 print(f'Sorry no {target_user} user was found')
 
