@@ -17,6 +17,7 @@ I use Django, Slack, Telegram and get stock information
 **3. 비동기로 텔레그램의 데이터를 실시간으로 가져올 수 있어야 한다.**
 <br>3-1. Redis [poetry add redis]
 <br>3-2. Celery [poetry add Celery]
+<br>3-3. apscheduler, nohup [poetry add apscheduler] 데이터가 있을 떄 테스트
 
 **4. 이상한 오류가 나오는지 수시로 확인**
 ## env
