@@ -101,9 +101,9 @@ def get_telethon():
         except ValueError:
             print(f'Sorry no {target_user} user was found')
 
-        with telegram_client:
-            telegram_client.loop.run_until_complete(send())
-        return print(news_link)
+    with telegram_client:
+        telegram_client.loop.run_until_complete(send())
+    return news_link
 
 
 if __name__ == '__main__':
