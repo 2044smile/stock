@@ -1,4 +1,9 @@
 import os
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "config.settings")
+
+import django
+django.setup()
+
 import asyncio
 
 from telethon.sync import TelegramClient
@@ -9,7 +14,7 @@ from telethon.errors import SessionPasswordNeededError
 from stock.models import Channel, Stock
 
 
-def get_telethon(self):
+def get_telethon():
     API_ID = os.getenv('TELETHON_API_ID')
     API_HASH = os.getenv('TELETHON_API_HASH')
 
@@ -99,3 +104,7 @@ def get_telethon(self):
         with telegram_client:
             telegram_client.loop.run_until_complete(send())
         return print(news_link)
+
+
+if __name__ == '__main__':
+    get_telethon()
