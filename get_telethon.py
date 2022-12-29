@@ -12,9 +12,11 @@ from django_telethon.models import App, ClientSession
 from telethon.errors import SessionPasswordNeededError
 
 from stock.models import Channel, Stock
+from apscheduler.schedulers.background import BackgroundScheduler
 
 
 def get_telethon():
+    print('Got it')
     API_ID = os.getenv('TELETHON_API_ID')
     API_HASH = os.getenv('TELETHON_API_HASH')
 
@@ -54,7 +56,7 @@ def get_telethon():
             for channel in channel_list:
                 obj = Channel.objects.get(name=channel)
                 await telegram_client.get_entity(channel)
-                for message in await telegram_client.get_messages(channel, limit=10):
+                for message in await telegram_client.get_messages(channel, limit=20):
                     try:
                         if message.media.webpage:
                             title = message.media.webpage.title
@@ -107,4 +109,12 @@ def get_telethon():
 
 
 if __name__ == '__main__':
-    get_telethon()
+    print('Start')
+    sched = BackgroundScheduler(timezone="Asia/Seoul")
+    sched.start()
+
+    while True:
+        @sched.scheduled_job('cron', hour='18', minute='5', id='am')
+        def job():
+            print('Middle')
+            get_telethon()
