@@ -1,4 +1,4 @@
-import os
+import os, time
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "config.settings")
 
 import django
@@ -109,12 +109,12 @@ def get_telethon():
 
 
 if __name__ == '__main__':
-    print('Start')
     sched = BackgroundScheduler(timezone="Asia/Seoul")
     sched.start()
 
     while True:
-        @sched.scheduled_job('cron', hour='18', minute='5', id='am')
-        def job():
-            print('Middle')
+        @sched.scheduled_job('cron', hour='18', minute='35', id='am')
+        def job_am():
             get_telethon()
+
+        time.sleep(1)
