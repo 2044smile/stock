@@ -6,6 +6,6 @@ from .models import Stock
 
 
 class IndexListView(ListView):
-    paginate_by = 10
     model = Stock
-    
+    paginate_by = 10
+    template_name = 'index.html'

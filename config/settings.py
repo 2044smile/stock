@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'stock',
 
     'django_telethon',
+    'django_extensions',
 ]
 
 MIDDLEWARE = [
