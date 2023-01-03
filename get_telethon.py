@@ -113,7 +113,7 @@ if __name__ == '__main__':
     sched.start()
 
     while True:
-        @sched.scheduled_job('cron', hour='18', minute='35', id='am')
+        @sched.scheduled_job('cron', hour='9', minute='0', id='am')
         def job_am():
             get_telethon()
 
