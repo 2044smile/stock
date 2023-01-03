@@ -1,5 +1,8 @@
-from django.http.response import HttpResponse
+from django.shortcuts import render
+
+from .models import Stock
 
 
 def index(request):
-    return HttpResponse("Hello World")
+    stock_list = Stock.objects.all()
+    return render(request, 'index.html', {'stock_list': stock_list})
