@@ -17,7 +17,10 @@ I use Django, Slack, Telegram and get stock information
 **3. 비동기로 텔레그램의 데이터를 실시간으로 가져올 수 있어야 한다.**
 <br>3-1. Redis [poetry add redis]
 <br>3-2. Celery [poetry add Celery]
-<br>3-3. apscheduler, nohup [poetry add apscheduler 데이터 apscheduler 로 들어오는 것은 확인, nohup은 아직 데이터가 들어오는 것 같지 않음
+<br>3-3. apscheduler [poetry add apscheduler 데이터 apscheduler 로 들어오는 것은 확인, <br>
+Docker 내부에서 nohup 은 아래 [링크](https://unix.stackexchange.com/questions/268284/nohup-doesnt-work-as-expected-in-docker-script)를 확인
+
+
 
 **4. 이상한 오류가 나오는지 수시로 확인**
 ## env
