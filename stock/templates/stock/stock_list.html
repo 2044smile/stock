@@ -1,3 +1,4 @@
+{% extends 'base.html' %}
 {% block content %}
     {% for stock in stock_list %}
         <h3><a href="{{ stock.url }}">{{ stock.title }}</a></h3>

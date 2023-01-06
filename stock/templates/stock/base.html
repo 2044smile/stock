@@ -16,10 +16,16 @@
         {% endblock %}
     </head>
     <body>
-        <h1>안녕하세요.</h1>
-        {% block content %}
-        <h1>안녕하세요.</h1>
+        {% block header %}
+        <h1>Header</h1>
         {% endblock %}
-        <h1>안녕하세요.</h1>
+        
+        {% block content %}
+        <h1>Content</h1>
+        {% endblock %}
+
+        {% block footer %}
+        <h1>Footer</h1>
+        {% endblock %}
     </body>
 </html>
