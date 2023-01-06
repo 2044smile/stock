@@ -1,7 +1,10 @@
 {% extends 'base.html' %}
 {% block content %}
     {% for stock in stock_list %}
-        <h3><a href="{{ stock.url }}">{{ stock.title }}</a>{{ stock.date }}</h3>
+        <h3>
+            <a href="{{ stock.url }}">{{ stock.title }}</a>
+            <br>{{ stock.date|date:"Y년 m월 d일 H시 i분"}}
+        </h3>
     {% endfor %}
     <center>
     <div class="pagination">
