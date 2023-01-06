@@ -16,7 +16,6 @@ from apscheduler.schedulers.background import BackgroundScheduler
 
 
 def get_telethon():
-    print('Got it')
     API_ID = os.getenv('TELETHON_API_ID')
     API_HASH = os.getenv('TELETHON_API_HASH')
 
@@ -57,7 +56,6 @@ def get_telethon():
                 obj = Channel.objects.get(name=channel)
                 await telegram_client.get_entity(channel)
                 for message in await telegram_client.get_messages(channel, limit=20):
-                    print(message)
                     try:
                         if message.media.webpage:
                             title = message.media.webpage.title
@@ -102,8 +100,6 @@ def get_telethon():
                             date=message.date
                         )
                         news_link.append(message.message)
-                        print(news_link)
-                    print(news_link)
         except ValueError:
             print(f'Sorry no {target_user} user was found')
 
@@ -117,7 +113,19 @@ if __name__ == '__main__':
     sched.start()
 
     while True:
-        @sched.scheduled_job('cron', hour='9', minute='50', id='am')
+        @sched.scheduled_job('cron', hour='8', minute='30', id='am')
+        def job_am():
+            get_telethon()
+
+        @sched.scheduled_job('cron', hour='8', minute='40', id='am')
+        def job_am():
+            get_telethon()
+
+        @sched.scheduled_job('cron', hour='8', minute='50', id='am')
+        def job_am():
+            get_telethon()
+
+        @sched.scheduled_job('cron', hour='9', minute='0', id='am')
         def job_am():
             get_telethon()
 
