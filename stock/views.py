@@ -5,7 +5,9 @@ from django.views.generic import ListView
 from .models import Stock
 
 
-class IndexListView(ListView):
+class StockListView(ListView):
     model = Stock
     paginate_by = 10
-    template_name = 'index.html'
+
+    def get_queryset(self):
+        return super().get_queryset()

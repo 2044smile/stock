@@ -1,6 +1,6 @@
-<html>
+{% block content %}
     {% for stock in stock_list %}
-        <h3>{{ stock }}</h3>
+        <h3><a href="{{ stock.url }}">{{ stock.title }}</a></h3>
     {% endfor %}
     <center>
     <div class="pagination">
@@ -9,11 +9,11 @@
                 <a href="?page=1">&laquo; first</a>
                 <a href="?page={{ page_obj.previous_page_number }}">previous</a>
             {% endif %}
-    
+
             <span class="current">
                 Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
             </span>
-    
+
             {% if page_obj.has_next %}
                 <a href="?page={{ page_obj.next_page_number }}">next</a>
                 <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
@@ -21,4 +21,4 @@
         </span>
     </div>
     </center>
-</html>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+    <head>
+        {% block meta %}
+            <title>마이스탁 ::</title>
+			<meta name="description" content="주식정보, 대통령뉴스룸, 좋아하는, 텔레그램, 코로나감염지수">
+            <meta name="keywords" content="마이스탁">
+
+            <meta property="og:title" content="마이스탁 ::" />
+            <meta property="og:description" content="주식정보, 대통령뉴스룸, 좋아하는, 텔레그램, 코로나감염지수">
+            <meta property="og:image" content="" />
+            <meta property="og:image:secure_url" content="" />
+            <meta property="og:image:type" content="image/jpeg" />
+            <meta property="og:image:width" content="1200" />
+            <meta property="og:image:height" content="630" />
+        {% endblock %}
+    </head>
+    <body>
+        <h1>안녕하세요.</h1>
+        {% block content %}
+        <h1>안녕하세요.</h1>
+        {% endblock %}
+        <h1>안녕하세요.</h1>
+    </body>
+</html>
