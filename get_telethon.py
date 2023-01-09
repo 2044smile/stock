@@ -58,6 +58,7 @@ def get_telethon():
                 for message in await telegram_client.get_messages(channel, limit=20):
                     try:
                         if message.media.webpage:
+                            print('True')
                             title = message.media.webpage.title
                             description = message.media.webpage.description
                             site_name = message.media.webpage.site_name
@@ -73,6 +74,7 @@ def get_telethon():
                             news_link.append(message.message)
                             print(news_link)
                     except AttributeError:
+                        print('False')
                         """
                         시간외특징주 와 같이 링크나 추가 설명이 없을 경우
 
@@ -113,24 +115,25 @@ if __name__ == '__main__':
     sched.start()
 
     while True:
-        @sched.scheduled_job('cron', hour='13', minute='20', id='am')
-        def job_am():
-            get_telethon()
+        get_telethon()
+        # @sched.scheduled_job('cron', hour='13', minute='20', id='am')
+        # def job_am():
+        #     get_telethon()
 
-        @sched.scheduled_job('cron', hour='13', minute='40', id='am')
-        def job_am():
-            get_telethon()
+        # @sched.scheduled_job('cron', hour='13', minute='40', id='am')
+        # def job_am():
+        #     get_telethon()
 
-        @sched.scheduled_job('cron', hour='13', minute='50', id='am')
-        def job_am():
-            print('Start - 0')
-            get_telethon()
-            print('End')
+        # @sched.scheduled_job('cron', hour='13', minute='50', id='am')
+        # def job_am():
+        #     print('Start - 0')
+        #     get_telethon()
+        #     print('End')
 
-        @sched.scheduled_job('cron', hour='14', minute='0', id='am')
-        def job_am():
-            print('Start - 1')
-            get_telethon()
-            print('End')
+        # @sched.scheduled_job('cron', hour='14', minute='0', id='am')
+        # def job_am():
+        #     print('Start - 1')
+        #     get_telethon()
+        #     print('End')
 
         time.sleep(1)
