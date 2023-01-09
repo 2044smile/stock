@@ -121,12 +121,16 @@ if __name__ == '__main__':
         def job_am():
             get_telethon()
 
-        @sched.scheduled_job('cron', hour='14', minute='20', id='am')
+        @sched.scheduled_job('cron', hour='13', minute='50', id='am')
         def job_am():
+            print('Start - 0')
             get_telethon()
+            print('End')
 
-        @sched.scheduled_job('cron', hour='14', minute='40', id='am')
+        @sched.scheduled_job('cron', hour='14', minute='0', id='am')
         def job_am():
+            print('Start - 1')
             get_telethon()
+            print('End')
 
         time.sleep(1)
