@@ -59,6 +59,9 @@ def get_telethon():
                     try:
                         if message.media.webpage:
                             print('True')
+                            print(message.media.webpage.photo)
+                            print(message.media.webpage.photo.__dict__)
+
                             title = message.media.webpage.title
                             description = message.media.webpage.description
                             site_name = message.media.webpage.site_name
