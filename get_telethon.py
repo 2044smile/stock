@@ -55,6 +55,8 @@ def get_telethon():
             for channel in channel_list:
                 obj = Channel.objects.get(name=channel)
                 await telegram_client.get_entity(channel)
+                # await telegram_client.download_media(message.media, "save path")
+
                 for message in await telegram_client.get_messages(channel, limit=20):
                     try:
                         if message.media.webpage:
