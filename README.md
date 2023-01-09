@@ -3,7 +3,7 @@ I use Django, Slack, Telegram and get stock information
 
 ## Plan
 1. Telethon 에서 텔레그램 채팅 가져오기 (O)
-2. django-telethon use (ing)[https://stackoverflow.com/questions/68976078/using-telethon-with-a-django-application]
+2. django-telethon use [stackoverflow](https://stackoverflow.com/questions/68976078/using-telethon-with-a-django-application)
 
 ## django-telegram
 ### problem
@@ -19,6 +19,10 @@ I use Django, Slack, Telegram and get stock information
 <br>~~* 3-2. Celery [poetry add Celery]~~
 <br>3-3. apscheduler [poetry add apscheduler 데이터 apscheduler 로 들어오는 것은 확인
 <br>3-4. nohup poetry run python get_telethon.py &
+
+**4. message.media.webpage.photo**
+<br>How do I use photo file_reference <br>
+[stackoverflow](https://stackoverflow.com/questions/62391946/how-to-download-images-to-my-local-pc-using-telethon)
 
 
 
