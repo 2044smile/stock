@@ -1,5 +1,8 @@
 {% extends 'base.html' %}
 {% block content %}
+    <!-- <form method="GET" action="{% url 'stocks' %}">
+        <button type="submit">Filter By Date</button>
+    </form> -->
     {% for stock in stock_list %}
         <h3>
             <a href="{{ stock.url }}">{{ stock.title }}</a>

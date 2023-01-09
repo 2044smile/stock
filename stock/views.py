@@ -10,6 +10,10 @@ class StockIndexView(TemplateView):
 class StockListView(ListView):
     model = Stock
     paginate_by = 10
+    ordering = ['-date']
 
     def get_queryset(self):
         return super().get_queryset()
+
+    def get_context_data(self, **kwargs):
+        return super().get_context_data(**kwargs)

@@ -32,7 +32,7 @@ class Stock(BaseModel):
     class Meta:
         verbose_name = 'Stock'
         verbose_name_plural = 'Stocks'
-        ordering = ['-date']
+        ordering = ['-created_at']
 
     def __str__(self):
         return f"Stock-{self.channel}-{self.title}"
