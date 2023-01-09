@@ -113,19 +113,19 @@ if __name__ == '__main__':
     sched.start()
 
     while True:
-        @sched.scheduled_job('cron', hour='8', minute='30', id='am')
+        @sched.scheduled_job('cron', hour='13', minute='20', id='am')
         def job_am():
             get_telethon()
 
-        @sched.scheduled_job('cron', hour='8', minute='40', id='am')
+        @sched.scheduled_job('cron', hour='14', minute='0', id='am')
         def job_am():
             get_telethon()
 
-        @sched.scheduled_job('cron', hour='8', minute='50', id='am')
+        @sched.scheduled_job('cron', hour='14', minute='20', id='am')
         def job_am():
             get_telethon()
 
-        @sched.scheduled_job('cron', hour='9', minute='0', id='am')
+        @sched.scheduled_job('cron', hour='14', minute='40', id='am')
         def job_am():
             get_telethon()
 
