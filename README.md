@@ -22,7 +22,7 @@ I use Django, Slack, Telegram and get stock information
 
 **4. message.media.webpage.photo**
 <br>How do I use photo file_reference <br>
-[stackoverflow](https://stackoverflow.com/questions/62391946/how-to-download-images-to-my-local-pc-using-telethon)
+Link: [stackoverflow](https://stackoverflow.com/questions/62391946/how-to-download-images-to-my-local-pc-using-telethon)
 
 
 
