@@ -60,7 +60,9 @@ def get_telethon():
                 # await telegram_client.download_media(message.media, "save path")
 
                 for message in await telegram_client.get_messages(channel, limit=20):
+                    print()
                     print(message)
+                    print()
                     try:
                         if message.media.webpage:
                             print('True')
@@ -70,7 +72,6 @@ def get_telethon():
                             site_name = message.media.webpage.site_name
                             url = message.media.webpage.url
 
-                            print('before')
                             Stock.objects.update_or_create(
                                 channel=obj,
                                 title=title,
@@ -79,7 +80,7 @@ def get_telethon():
                                 url=url,
                                 date=message.date
                             )
-                            success_news_link.append(message.message)
+                            success_news_link.append(message.media.webpage.url)
                             print(success_news_link)
                     except AttributeError:
                         print('There are many difficult problems')
