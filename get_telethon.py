@@ -61,8 +61,6 @@ def get_telethon():
                     try:
                         if message.media.webpage:
                             print('True')
-                            print(message.media.webpage.photo)
-                            print(message.media.webpage.photo.__dict__)
 
                             title = message.media.webpage.title
                             description = message.media.webpage.description
@@ -120,25 +118,24 @@ if __name__ == '__main__':
     sched.start()
 
     while True:
-        get_telethon()
-        # @sched.scheduled_job('cron', hour='13', minute='20', id='am')
-        # def job_am():
-        #     get_telethon()
+        @sched.scheduled_job('cron', hour='15', minute='0', id='am')
+        def job_am():
+            print('15,0')
+            get_telethon()
 
-        # @sched.scheduled_job('cron', hour='13', minute='40', id='am')
-        # def job_am():
-        #     get_telethon()
+        @sched.scheduled_job('cron', hour='15', minute='30', id='am')
+        def job_am():
+            print('15,30')
+            get_telethon()
 
-        # @sched.scheduled_job('cron', hour='13', minute='50', id='am')
-        # def job_am():
-        #     print('Start - 0')
-        #     get_telethon()
-        #     print('End')
+        @sched.scheduled_job('cron', hour='16', minute='0', id='am')
+        def job_am():
+            print('16,0')
+            get_telethon()
 
-        # @sched.scheduled_job('cron', hour='14', minute='0', id='am')
-        # def job_am():
-        #     print('Start - 1')
-        #     get_telethon()
-        #     print('End')
+        @sched.scheduled_job('cron', hour='16', minute='30', id='am')
+        def job_am():
+            print('16,30')
+            get_telethon()
 
         time.sleep(1)
