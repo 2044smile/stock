@@ -13,6 +13,7 @@ from telethon.errors import SessionPasswordNeededError
 
 from stock.models import Channel, Stock
 from apscheduler.schedulers.background import BackgroundScheduler
+from django.core.exceptions import ObjectDoesNotExist
 
 
 def get_telethon():
@@ -20,7 +21,8 @@ def get_telethon():
     API_HASH = os.getenv('TELETHON_API_HASH')
 
     channel_list = [os.getenv('channel_one'), os.getenv('channel_two')]
-    news_link = []
+    success_news_link = []
+    fail_news_link = []
 
     # if request.method == "POST":
     app, is_created = App.objects.update_or_create(
@@ -58,6 +60,7 @@ def get_telethon():
                 # await telegram_client.download_media(message.media, "save path")
 
                 for message in await telegram_client.get_messages(channel, limit=20):
+                    print(message)
                     try:
                         if message.media.webpage:
                             print('True')
@@ -67,6 +70,7 @@ def get_telethon():
                             site_name = message.media.webpage.site_name
                             url = message.media.webpage.url
 
+                            print('before')
                             Stock.objects.update_or_create(
                                 channel=obj,
                                 title=title,
@@ -75,8 +79,8 @@ def get_telethon():
                                 url=url,
                                 date=message.date
                             )
-                            news_link.append(message.message)
-                            print(news_link)
+                            success_news_link.append(message.message)
+                            print(success_news_link)
                     except AttributeError:
                         print('False')
                         """
@@ -105,21 +109,24 @@ def get_telethon():
                             url=url,  # Naver Cafe must sign up in the case of 'msg_list[1]'
                             date=message.date
                         )
-                        news_link.append(message.message)
+                        fail_news_link.append(message.message)
+                        print(fail_news_link)
+                    except Stock.DoesNotExist:
+                        print('yes')
         except ValueError:
             print(f'Sorry no {target_user} user was found')
 
     with telegram_client:
         telegram_client.loop.run_until_complete(send())
-    return news_link
+    return success_news_link
 
 
 if __name__ == '__main__':
     sched = BackgroundScheduler(timezone="Asia/Seoul")
     sched.start()
 
-    while True:
+    # while True:
         # @sched.scheduled_job('cron', hour='15', minute='8')
         # def job_am():
         #     print('15,8')
-        get_telethon()
+    get_telethon()
