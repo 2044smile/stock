@@ -66,6 +66,7 @@ def get_telethon():
                             description = message.media.webpage.description
                             site_name = message.media.webpage.site_name
                             url = message.media.webpage.url
+
                             Stock.objects.update_or_create(
                                 channel=obj,
                                 title=title,
@@ -118,24 +119,7 @@ if __name__ == '__main__':
     sched.start()
 
     while True:
-        @sched.scheduled_job('cron', hour='15', minute='0', id='am')
-        def job_am():
-            print('15,0')
-            get_telethon()
-
-        @sched.scheduled_job('cron', hour='15', minute='30', id='am')
-        def job_am():
-            print('15,30')
-            get_telethon()
-
-        @sched.scheduled_job('cron', hour='16', minute='0', id='am')
-        def job_am():
-            print('16,0')
-            get_telethon()
-
-        @sched.scheduled_job('cron', hour='16', minute='30', id='am')
-        def job_am():
-            print('16,30')
-            get_telethon()
-
-        time.sleep(1)
+        # @sched.scheduled_job('cron', hour='15', minute='8')
+        # def job_am():
+        #     print('15,8')
+        get_telethon()
