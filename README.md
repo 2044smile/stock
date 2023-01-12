@@ -4,6 +4,7 @@ I use Django, Slack, Telegram and get stock information
 ## Plan
 1. Telethon 에서 텔레그램 채팅 가져오기 (O)
 2. django-telethon use [stackoverflow](https://stackoverflow.com/questions/68976078/using-telethon-with-a-django-application)
+3. bootstrap [url](https://django-bootstrap-v5.readthedocs.io/en/latest/quickstart.html)
 
 ## django-telegram
 ### problem
