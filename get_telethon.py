@@ -68,6 +68,9 @@ def get_telethon():
                             print('True')
 
                             title = message.media.webpage.title
+                            print()
+                            print(title)
+                            print()
                             description = message.media.webpage.description
                             site_name = message.media.webpage.site_name
                             url = message.media.webpage.url
@@ -84,6 +87,9 @@ def get_telethon():
                             print(success_news_link)
                     except AttributeError:
                         print('There are many difficult problems')
+
+                    except ObjectDoesNotExist:
+                        print('Object Does Not Exist')
                         # print('False')
                         # """
                         # 시간외특징주 와 같이 링크나 추가 설명이 없을 경우
@@ -126,7 +132,9 @@ if __name__ == '__main__':
     sched.start()
 
     # while True:
-        # @sched.scheduled_job('cron', hour='15', minute='8')
-        # def job_am():
-        #     print('15,8')
-    get_telethon()
+        # time.sleep(1)
+    @sched.scheduled_job('cron', hour='20', minute='17')
+    def job_am():
+        get_telethon()
+        print('20,13')
+    
