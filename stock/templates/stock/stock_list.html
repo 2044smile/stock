@@ -12,7 +12,6 @@
             <br>{{ stock.date|date:"Y년 m월 d일 H시 i분"}}
         </h3>
     {% endfor %}
-    <center>
     <div class="pagination">
         <span class="step-links">
             {% if page_obj.has_previous %}
@@ -30,5 +29,4 @@
             {% endif %}
         </span>
     </div>
-    </center>
 {% endblock %}
