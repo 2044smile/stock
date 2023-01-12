@@ -59,7 +59,7 @@ def get_telethon():
                 await telegram_client.get_entity(channel)
                 # await telegram_client.download_media(message.media, "save path")
 
-                for message in await telegram_client.get_messages(channel, limit=20):
+                for message in await telegram_client.get_messages(channel, limit=10):
                     print()
                     print(message)
                     print()
@@ -131,10 +131,9 @@ if __name__ == '__main__':
     sched = BackgroundScheduler(timezone="Asia/Seoul")
     sched.start()
 
-    # while True:
-        # time.sleep(1)
-    @sched.scheduled_job('cron', hour='20', minute='17')
-    def job_am():
-        get_telethon()
-        print('20,13')
-    
+    while True:
+        @sched.scheduled_job('cron', hour='8,9', minute='0,15,30,45', second='1')
+        def job_am():
+            get_telethon()
+
+        time.sleep(1)
