@@ -1,6 +1,13 @@
 .stock-title h1 {
-    color: red;
     text-align: center;
+}
+.stock-title h1 a {
+    color: red;
+    text-decoration: none;
+}
+.stock-sub-title h2 a {
+    color: green;
+    text-decoration: none;
 }
 .pagination {
     text-align: center;
