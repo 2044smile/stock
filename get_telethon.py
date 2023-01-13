@@ -59,7 +59,7 @@ def get_telethon():
                 await telegram_client.get_entity(channel)
                 # await telegram_client.download_media(message.media, "save path")
 
-                for message in await telegram_client.get_messages(channel, limit=10):
+                for message in await telegram_client.get_messages(channel, limit=20):
                     print(message)
                     try:
                         if message.media.webpage:
@@ -69,8 +69,9 @@ def get_telethon():
                             site_name = message.media.webpage.site_name
                             url = message.media.webpage.url
 
-                            if title is None:
-                                title = 'None'
+                            if not all([title, description, site_name, url]):
+                                print('Not enough')
+                                break
 
                             Stock.objects.update_or_create(
                                 channel=obj,
