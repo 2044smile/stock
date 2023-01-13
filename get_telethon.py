@@ -60,11 +60,9 @@ def get_telethon():
                 # await telegram_client.download_media(message.media, "save path")
 
                 for message in await telegram_client.get_messages(channel, limit=20):
-                    print(message)
                     try:
                         if message.media.webpage:
                             title = message.media.webpage.title
-                            print(title)
                             description = message.media.webpage.description
                             site_name = message.media.webpage.site_name
                             url = message.media.webpage.url
@@ -99,9 +97,9 @@ if __name__ == '__main__':
     sched = BackgroundScheduler(timezone="Asia/Seoul")
     sched.start()
 
-    # while True:
-    #     @sched.scheduled_job('cron', hour='13', minute='0,15,30,53', second='1')
-    #     def job_am():
-    get_telethon()
+    while True:
+        @sched.scheduled_job('cron', hour='14', minute='0,15,30,53', second='1')
+        def job_am():
+            get_telethon()
 
-    #     time.sleep(1)
+        time.sleep(1)
