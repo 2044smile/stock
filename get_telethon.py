@@ -60,20 +60,17 @@ def get_telethon():
                 # await telegram_client.download_media(message.media, "save path")
 
                 for message in await telegram_client.get_messages(channel, limit=10):
-                    print()
                     print(message)
-                    print()
                     try:
                         if message.media.webpage:
-                            print('True')
-
                             title = message.media.webpage.title
-                            print()
                             print(title)
-                            print()
                             description = message.media.webpage.description
                             site_name = message.media.webpage.site_name
                             url = message.media.webpage.url
+
+                            if title is None:
+                                title = 'None'
 
                             Stock.objects.update_or_create(
                                 channel=obj,
@@ -87,38 +84,8 @@ def get_telethon():
                             print(success_news_link)
                     except AttributeError:
                         print('There are many difficult problems')
-
                     except ObjectDoesNotExist:
                         print('Object Does Not Exist')
-                        # print('False')
-                        # """
-                        # 시간외특징주 와 같이 링크나 추가 설명이 없을 경우
-
-                        # Ex by msg_list)
-                        # 12월 15일 시간외특징주\n  [0]
-                        # https://cafe.naver.com/stockhunters/99194\n Posts that are only open to members [1]
-                        # 12월 15일 52주 신고가 및 급등락주\n  [2]
-                        # https://cafe.naver.com/stockhunters/99195' You can see it even if you are not a member  [3]
-                        # """
-                        # msg_list = message.message.split('\n')
-                        # if len(msg_list) != 3:
-                        #     print(msg_list)
-                        #     break
-
-                        # title = msg_list[0]
-                        # description = msg_list[2]
-                        # url = msg_list[3]
-
-                        # Stock.objects.update_or_create(
-                        #     channel=obj,
-                        #     title=title,
-                        #     description=description,
-                        #     site_name="시간외 특징주",
-                        #     url=url,  # Naver Cafe must sign up in the case of 'msg_list[1]'
-                        #     date=message.date
-                        # )
-                        # fail_news_link.append(message.message)
-                        # print(fail_news_link)
         except ValueError:
             print(f'Sorry no {target_user} user was found')
 
@@ -131,9 +98,9 @@ if __name__ == '__main__':
     sched = BackgroundScheduler(timezone="Asia/Seoul")
     sched.start()
 
-    while True:
-        @sched.scheduled_job('cron', hour='8,9', minute='0,15,30,45', second='1')
-        def job_am():
-            get_telethon()
+    # while True:
+    #     @sched.scheduled_job('cron', hour='13', minute='0,15,30,53', second='1')
+    #     def job_am():
+    get_telethon()
 
-        time.sleep(1)
+    #     time.sleep(1)
