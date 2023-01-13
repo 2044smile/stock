@@ -1,3 +1,7 @@
+.stock-title {
+    display: block;
+    background-color: black;
+}
 .stock-title h1 {
     text-align: center;
 }
