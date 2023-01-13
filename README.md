@@ -5,6 +5,7 @@ I use Django, Slack, Telegram and get stock information
 1. Telethon 에서 텔레그램 채팅 가져오기 (O)
 2. django-telethon use [stackoverflow](https://stackoverflow.com/questions/68976078/using-telethon-with-a-django-application)
 3. bootstrap [url](https://django-bootstrap-v5.readthedocs.io/en/latest/quickstart.html)
+4. [What is the most pythonic way to check if multiple variables are not None?](https://stackoverflow.com/questions/42360956/what-is-the-most-pythonic-way-to-check-if-multiple-variables-are-not-none)
 
 ## django-telegram
 ### problem
