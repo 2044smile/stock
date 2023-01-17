@@ -16,8 +16,11 @@ body {
     text-decoration: none;
     color: white;
 }
+.stock-sub-title {
+    display: flex;
+}
 .stock-sub-title h2 {
-    color: green;
+    padding: 0 4em 0 4em;
 }
 .stock-sub-title h2 a {
     text-decoration: none;
