@@ -16,9 +16,14 @@ body {
     text-decoration: none;
     color: white;
 }
+.stock-sub-title h2 {
+    color: green;   
+}
 .stock-sub-title h2 a {
-    color: green;
     text-decoration: none;
+}
+.stock-sub-title h2 a:hover {
+    text-decoration: underline;
 }
 .pagination {
     text-align: center;
