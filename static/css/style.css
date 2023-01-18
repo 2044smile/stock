@@ -4,7 +4,6 @@ body {
     height: 100%;
 }
 .stock-title {
-    margin: 0px;
     height: 5em;
     padding-left: 12.3em;
     background-color: black;
@@ -25,6 +24,9 @@ body {
 }
 .stock-sub-title h2 a:hover {
     text-decoration: underline;
+}
+.content h3 a {
+    padding-left: 12.3em;
 }
 .pagination {
     text-align: center;

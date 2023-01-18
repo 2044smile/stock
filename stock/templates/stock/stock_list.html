@@ -6,12 +6,14 @@
 </div>
 {% endblock %}
 {% block content %}
+<div class="content"></div>
     {% for stock in stock_list %}
         <h3>
             <a href="{{ stock.url }}">{{ stock.title }}</a>
             <br>{{ stock.date|date:"Y년 m월 d일 H시 i분"}}
         </h3>
     {% endfor %}
+</div>
     <div class="pagination">
         <span class="step-links">
             {% if page_obj.has_previous %}
