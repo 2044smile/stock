@@ -3,7 +3,7 @@
 {% block header %}
 <header>
     <div class="stock-title container">
-        <h1><a href="{% url 'index' %}">개미 이야기</a></h1>
+        <h1><a href="{% url 'index' %}" class="text-decoration-none">개미 이야기</a></h1>
     </div>
 </header>
 {% endblock %}
@@ -12,7 +12,7 @@
     <h1>텔레그램 실시간 뉴스 정보</h1>
     {% for stock in stock_list %}
         <h3>
-            <a href="{{ stock.url }}">{{ stock.title }}</a>
+            <a href="{{ stock.url }}" class="text-decoration-none">{{ stock.title }}</a>
             <br>{{ stock.date|date:"Y년 m월 d일 H시 i분"}}
         </h3>
     {% endfor %}
