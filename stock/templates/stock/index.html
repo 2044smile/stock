@@ -3,14 +3,14 @@
 {% block header %}
 <header class="bg-black p-5">
     <div class="container">
-        <h1><a href="{% url 'index' %}" class="text-decoration-none">개미 이야기</a></h1>
+        <h1><a href="{% url 'index' %}" class="text-decoration-none text-white">개미 이야기</a></h1>
     </div>
+    <nav class="container pt-3">
+        <a href="{% url 'stock_list' %}" class="text-decoration-none text-white px-3">텔레그램 실시간 뉴스</a>
+        <a href="" class="text-decoration-none text-white px-3">대통령 뉴스룸</a>
+        <a href="" class="text-decoration-none text-white px-3">종목 지정 실시간 뉴스</a>
+    </nav>
 </header>
-<nav class="stock-sub-title">
-    <h2><a href="{% url 'stock_list' %}" class="text-decoration-none">텔레그램 실시간 주식 정보 & 뉴스(URL)</a></h2>
-    <h2>대통령 뉴스룸</h2>
-    <h2>좋아하는 종목 장 시작 전 뉴스 보기</h2>
-</nav>
 {% endblock %}
 
 {% block content %}
