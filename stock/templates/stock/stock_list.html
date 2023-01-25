@@ -2,13 +2,13 @@
 {% load static %}
 {% block header %}
 <header>
-    <div class="stock-title">
+    <div class="stock-title container">
         <h1><a href="{% url 'index' %}">개미 이야기</a></h1>
     </div>
 </header>
 {% endblock %}
 {% block content %}
-<div class="content">
+<div class="container bg-warning">
     <h1>텔레그램 실시간 뉴스 정보</h1>
     {% for stock in stock_list %}
         <h3>
