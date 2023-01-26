@@ -55,7 +55,9 @@
             {% endfor %}
 
             {% if page_obj.paginator.num_pages > page_obj.number|add:'4' %}
-                <li class="page-item"><a class="page-link" href="?page={{ page_obj.number|add:'5' }}">&hellip;</a></li>
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ page_obj.number|add:'5' }}">&hellip;</a>
+                </li>
             {% endif %}
 
             {% if page_obj.has_next %}
