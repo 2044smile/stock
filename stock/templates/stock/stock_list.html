@@ -47,7 +47,7 @@
                             <span class="sr-only"></span>
                         </span>
                     </li>
-                {% elif i > page_obj.number|add:'-5' and i < page_obj.number|add:'5' %}
+                {% elif i > page_obj.number|add:'-5' and i < page_obj.number|add:'5' %} <!-- 위로 다섯 개 아래로 다섯 개 페이지 가져오기-->
                     <li class="page-item">
                         <a class="page-link" href="?page={{ i }}">{{ i }}</a>
                     </li>
