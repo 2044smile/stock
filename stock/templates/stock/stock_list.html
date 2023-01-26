@@ -40,7 +40,7 @@
             {% endif %}
 
             {% for i in page_obj.paginator.page_range %}
-                {% if page_obj.number == i %}
+                {% if page_obj.number == i %}  <!-- page_obj.number 현재 페이지 Number-->
                     <li class="page-item active" aria-current="page">
                         <span class="page-link">
                             {{ i }}
@@ -54,7 +54,7 @@
                 {% endif %}
             {% endfor %}
 
-            {% if page_obj.paginator.num_pages > page_obj.number|add:'4' %}
+            {% if page_obj.paginator.num_pages > page_obj.number|add:'4' %}  <!-- page_obj.paginator.num_pages 마지막 페이지 숫자 EX) 19-->
                 <li class="page-item">
                     <a class="page-link" href="?page={{ page_obj.number|add:'5' }}">&hellip;</a>
                 </li>
