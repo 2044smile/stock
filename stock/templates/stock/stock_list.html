@@ -33,9 +33,9 @@
                 </li>
             {% endif %}
 
-            {% if page_obj.number|add:'-5' > 1 %}  <!-- HTML index   1,2,3,4,5,6,'7' -->
-                <li class="page-item">             <!-- Django index 1,2,3,4,5,6,'7' -->
-                    <a class="page-link" href="?page={{ page_obj.number|add:'-6' }}">&hellip;</a>
+            {% if page_obj.number|add:'-4' > 1 %} <!-- 내림차순 -->
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ page_obj.number|add:'-5' }}">&hellip;</a>
                 </li>
             {% endif %}
 
@@ -55,7 +55,7 @@
             {% endfor %}
 
             {% if page_obj.paginator.num_pages > page_obj.number|add:'4' %}  <!-- page_obj.paginator.num_pages 마지막 페이지 숫자 EX) 19-->
-                <li class="page-item">
+                <li class="page-item">  <!-- 오름차순 -->
                     <a class="page-link" href="?page={{ page_obj.number|add:'5' }}">&hellip;</a>
                 </li>
             {% endif %}
