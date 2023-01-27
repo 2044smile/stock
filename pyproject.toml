@@ -17,6 +17,7 @@ apscheduler = "^3.9.1.post1"
 django-extensions = "^3.2.1"
 pillow = "^9.4.0"
 django-imagekit = "^4.1.0"
+beautifulsoup4 = "^4.11.1"
 
 
 [build-system]
