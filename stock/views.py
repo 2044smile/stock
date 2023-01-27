@@ -6,7 +6,7 @@ from .models import Stock
 
 
 class StockIndexView(TemplateView):
-    template_name = 'telethon/index.html'
+    template_name = 'index.html'
 class StockListView(ListView):
     model = Stock
     paginate_by = 10
@@ -14,3 +14,6 @@ class StockListView(ListView):
     def get_ordering(self):
         ordering = self.request.GET.get('ordering', '-date')
         return ordering
+
+# class PresidentListView(ListView):
+#     model = President
