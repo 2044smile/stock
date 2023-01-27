@@ -15,8 +15,8 @@
 {% block content %}
 <div class="container bg-light">
     <h1 class="text-center p-3 fw-bold">텔레그램 실시간 뉴스 정보</h1>
-    <button type="button" class="btn btn-info"><a href="?ordering=-date">내림차순</a></button>
-    <button type="button" class="btn btn-info"><a href="?ordering=date">오름차순</a></button><br>
+    <button type="button" class="btn btn-info"><a href="?ordering=-date" class="text-decoration-none">내림차순</a></button>
+    <button type="button" class="btn btn-info"><a href="?ordering=date" class="text-decoration-none">오름차순</a></button><br>
     {% for stock in stock_list %}
         <a href="{{ stock.url }}" class="text-decoration-none text-black fw-bold fs-3">{{ stock.title }}</a>
         <p class="fs-5">{{ stock.date|date:"Y년 m월 d일 H시 i분"}}</p>
