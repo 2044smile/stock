@@ -42,6 +42,7 @@ class PresidentFact(BaseModel):
     title = models.CharField(max_length=255)
     sub_title = models.CharField(max_length=255)
     description = models.TextField()
+    url = models.URLField(max_length=255)
 
     class Meta:
         verbose_name = 'PresidentFact'
@@ -55,6 +56,7 @@ class PresidentFact(BaseModel):
 class PresidentBriefing(BaseModel):
     title = models.CharField(max_length=255)
     description = models.TextField()
+    url = models.URLField(max_length=255)
 
     class MetA:
         verbose_name = 'PresidentBriefing'
