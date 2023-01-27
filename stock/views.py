@@ -14,6 +14,3 @@ class StockListView(ListView):
     def get_ordering(self):
         ordering = self.request.GET.get('ordering', '-date')
         return ordering
-
-class StockDetailView(DetailView):
-    model = Stock
