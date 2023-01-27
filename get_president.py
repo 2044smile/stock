@@ -19,17 +19,28 @@ class PresidentNewsroomCrawling:
     def crawler(self, target):
         if target == 'fact':
             html = self.president_newsroom_fact_url
+            soup = BeautifulSoup(html.text, 'html.parser')
+            bs = soup.select(
+                "body > div.container > div > section.fact > div > div > a"
+            )
+            for b in bs:
+                self.link_url.append(self.president_url.url.rstrip('/') + b.get('href'))
+
+            text_lst = []
+            
+            for url in self.link_url:
+                html = requests.get(url=url)
+                soup = BeautifulSoup(html.text, 'html.parser')
+                bs = soup.select(
+                    "body > div.container > div > section.view_area"
+                )
+
+                for b in bs:
+                    text = b.get_text().replace("\n", "").strip("복사확인")
+                    text_lst.append(text)
+            
         elif target == 'briefing':
             html = self.president_newsroom_briefing_url
-
-        soup = BeautifulSoup(html.text, 'html.parser')
-        bs = soup.select(
-            "body > div.container > div > section.fact > div > div > a"
-        )
-        for b in bs:
-            self.link_url.append(self.president_url.url.rstrip('/') + b.get('href'))
-        
-        print(self.link_url)
         
 p = PresidentNewsroomCrawling()
 p.crawler('fact')
