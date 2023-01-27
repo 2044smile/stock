@@ -6,7 +6,7 @@ from .models import Stock
 
 
 class StockIndexView(TemplateView):
-    template_name = 'index.html'
+    template_name = 'telethon/index.html'
 class StockListView(ListView):
     model = Stock
     paginate_by = 10
