@@ -36,3 +36,30 @@ class Stock(BaseModel):
 
     def __str__(self):
         return f"Stock-{self.channel}-{self.title}"
+
+
+class PresidentFact(BaseModel):
+    title = models.CharField(max_length=255)
+    sub_title = models.CharField(max_length=255)
+    description = models.TextField()
+
+    class Meta:
+        verbose_name = 'PresidentFact'
+        verbose_name_plural = 'PresidentFacts'
+        ordering = ['-created_at']
+
+    def __str__(self):
+        return f"PresidentFact-{self.title}"
+
+
+class PresidentBriefing(BaseModel):
+    title = models.CharField(max_length=255)
+    description = models.TextField()
+
+    class MetA:
+        verbose_name = 'PresidentBriefing'
+        verbose_name_plural = 'PresidentBriefings'
+        ordering = ['-created_at']
+
+    def __str__(self):
+        return f"PresidentBriefing-{self.title}"
