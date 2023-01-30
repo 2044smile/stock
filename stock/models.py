@@ -40,9 +40,8 @@ class Stock(BaseModel):
 
 class PresidentFact(BaseModel):
     title = models.CharField(max_length=255)
-    sub_title = models.CharField(max_length=255)
     description = models.TextField()
-    url = models.URLField(max_length=255)
+    link = models.URLField(max_length=255)
     date = models.DateTimeField()
 
     class Meta:
@@ -57,7 +56,7 @@ class PresidentFact(BaseModel):
 class PresidentBriefing(BaseModel):
     title = models.CharField(max_length=255)
     description = models.TextField()
-    url = models.URLField(max_length=255)
+    link = models.URLField(max_length=255)
     date = models.DateTimeField()
 
     class MetA:
