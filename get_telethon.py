@@ -94,7 +94,7 @@ def get_telethon():
 
 
 if __name__ == '__main__':
-    print("gitmoji")
+    print("gitmoji!")
     sched = BackgroundScheduler(timezone="Asia/Seoul")
     sched.start()
 
