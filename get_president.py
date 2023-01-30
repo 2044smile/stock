@@ -1,6 +1,11 @@
-import re
-import os, requests
+import re, os, requests
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "config.settings")
+
+import django
+django.setup()
+
 from datetime import datetime
+from stock.models import PresidentFact
 
 from bs4 import BeautifulSoup
 
@@ -41,15 +46,17 @@ class PresidentNewsroomCrawling:
                     # 날짜 가져오기 after, save database
                     match = re.search(r'\d{4}.\d{2}.\d{2}', text)
                     date = datetime.strptime(match.group(), '%Y.%m.%d')  # match.group() 2023.01.27 to datetime
-                    remove_dates = re.sub(r'\d{4}.\d{2}.\d{2}', '', text)  # text 에서 날짜 제거
-                    
-                    # special characters 제거 to List
-                    remove_special_characters = remove_dates.split('→')
-                    # print(remove_special_characters[0])  # title
-                    # print(remove_special_characters[1])  # description
 
-                    remove_links = remove_special_characters.split('https://')[1].split("링크")[0]
-                    # print(remove_links)
+                    get_dates = re.sub(r'\d{4}.\d{2}.\d{2}', '', text)  # text 에서 날짜 제거
+                    get_special_characters = get_dates.split('→')
+                    get_links = get_special_characters[1].split('https://')[1].split('링크')[0]
+
+                    PresidentFact.objects.update_or_create(
+                        title=get_special_characters[0],
+                        description=get_special_characters[1],
+                        link=get_links,
+                        date=date
+                    )
             
         elif target == 'briefing':
             html = self.president_newsroom_briefing_url
