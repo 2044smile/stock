@@ -27,8 +27,6 @@ class PresidentNewsroomCrawling:
             )
             for b in bs:
                 self.link_url.append(self.president_url.url.rstrip('/') + b.get('href'))
-
-            text_lst = []
             
             for url in self.link_url:
                 html = requests.get(url=url)
