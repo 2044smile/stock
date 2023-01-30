@@ -23,15 +23,15 @@ class PresidentNewsroomCrawling:
 
     def crawler(self, target):
         if target == 'fact':
-            html = self.president_newsroom_fact_url
+            html = self.president_newsroom_fact_url  # requests.get
             soup = BeautifulSoup(html.text, 'html.parser')
             bs = soup.select(
                 "body > div.container > div > section.fact > div > div > a"
             )
-            for b in bs:
+            for b in bs:  # newsroom/fact/ 왜 여기에 for 문이 있어야 할까?
                 self.link_url.append(self.president_url.url.rstrip('/') + b.get('href'))
             
-            for url in self.link_url:
+            for url in self.link_url:  # link_url to url 로 들어가서 한번 더 크롤링 진행
                 html = requests.get(url=url)
                 soup = BeautifulSoup(html.text, 'html.parser')
                 bs = soup.select(
@@ -39,10 +39,10 @@ class PresidentNewsroomCrawling:
                 )
 
                 for b in bs:
-                    text = b.get_text().replace("\n", "").strip("복사확인").replace("\xa0", "")
+                    text = b.get_text().replace("\n", "").strip("복사확인").replace("\xa0", "")  # 필요없는 문자 제거
                     
-                    match = re.search(r'\d{4}.\d{2}.\d{2}', text)
-                    date = datetime.strptime(match.group(), '%Y.%m.%d')  # match.group() 2023.01.27 to datetime
+                    match = re.search(r'\d{4}.\d{2}.\d{2}', text)  # text 에서 날짜 까내기
+                    date = datetime.strptime(match.group(), '%Y.%m.%d')  # match.group() 2023.01.27 to datetime 으로 만들기
                     remove_dates = re.sub(r'\d{4}.\d{2}.\d{2}', '', text)  # text 에서 날짜 제거
 
                     get_info = remove_dates.split('→')
