@@ -12,8 +12,6 @@ from bs4 import BeautifulSoup
 
 class PresidentNewsroomCrawling:
     def __init__(self):
-        print('__init__')
-        
         self.link_url = []
         
         self.president_url = requests.get(url='https://www.president.go.kr')
