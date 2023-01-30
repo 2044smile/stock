@@ -43,10 +43,10 @@ class PresidentNewsroomCrawling:
                     # 날짜 가져오기 after, save database
                     match = re.search(r'\d{4}.\d{2}.\d{2}', text)
                     date = datetime.strptime(match.group(), '%Y.%m.%d')  # match.group() 2023.01.27 to datetime
-                    remove_date = re.sub(r'\d{4}.\d{2}.\d{2}', '', text)  # text 에서 날짜 제거
+                    remove_dates = re.sub(r'\d{4}.\d{2}.\d{2}', '', text)  # text 에서 날짜 제거
                     
                     # special characters 제거 to List
-                    remove_special_characters = remove_date.split('→')
+                    remove_special_characters = remove_dates.split('→')
                     # print(remove_special_characters[0])  # title
                     # print(remove_special_characters[1])  # description
 
