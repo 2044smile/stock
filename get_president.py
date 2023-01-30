@@ -50,10 +50,8 @@ class PresidentNewsroomCrawling:
                     # print(remove_special_characters[0])  # title
                     # print(remove_special_characters[1])  # description
 
-                    import pdb;
-                    pdb.set_trace()
                     remove_links = remove_special_characters.split('https://')[1].split("링크")[0]
-                    print(remove_links) 
+                    # print(remove_links)
             
         elif target == 'briefing':
             html = self.president_newsroom_briefing_url
