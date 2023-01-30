@@ -43,18 +43,20 @@ class PresidentNewsroomCrawling:
                 for b in bs:
                     text = b.get_text().replace("\n", "").strip("복사확인").replace("\xa0", "")
                     
-                    # 날짜 가져오기 after, save database
                     match = re.search(r'\d{4}.\d{2}.\d{2}', text)
                     date = datetime.strptime(match.group(), '%Y.%m.%d')  # match.group() 2023.01.27 to datetime
+                    remove_dates = re.sub(r'\d{4}.\d{2}.\d{2}', '', text)  # text 에서 날짜 제거
 
-                    get_dates = re.sub(r'\d{4}.\d{2}.\d{2}', '', text)  # text 에서 날짜 제거
-                    get_special_characters = get_dates.split('→')
-                    get_links = get_special_characters[1].split('https://')[1].split('링크')[0]
+                    get_info = remove_dates.split('→')
+
+                    get_title = get_info[0]
+                    get_description = get_info[1].split("목록")[0]
+                    get_link = get_info[1].split("목록")[0].split("링크")[0]
 
                     PresidentFact.objects.update_or_create(
-                        title=get_special_characters[0],
-                        description=get_special_characters[1],
-                        link=get_links,
+                        title=get_title,
+                        description=get_description,
+                        link=get_link,
                         date=date
                     )
             
