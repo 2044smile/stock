@@ -9,7 +9,7 @@ class StockIndexView(TemplateView):
     template_name = 'index.html'
 class StockListView(ListView):
     model = Stock
-    paginate_by = 10
+    paginate_by = 7  # why not on the 10th?
 
     def get_ordering(self):
         ordering = self.request.GET.get('ordering', '-date')
