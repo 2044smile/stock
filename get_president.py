@@ -49,7 +49,7 @@ class PresidentNewsroomCrawling:
 
                         get_title = get_info[0]
                         get_description = get_info[1].split("목록")[0]
-                        get_link = get_info[1].split("목록")[0].split("링크")[0]
+                        get_link = get_info[1].split("목록")[1].split("링크")[0]
 
                         PresidentFact.objects.update_or_create(
                             title=get_title,
