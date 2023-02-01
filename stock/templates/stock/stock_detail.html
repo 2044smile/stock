@@ -1,7 +1,0 @@
-{% extends 'base.html' %}
-{% block content %}
-    <a href="{{ stock.url }}">{{ stock.title }} - {{ stock.site_name }}</a><br>
-    <!-- {{ object.description }} <br> -->
-    <img src="{{ stock.url }}" alt="img"><br>
-    {{ stock.date|date:"Y년 m월 d일 H시 i분" }} <br>
-{% endblock %}
