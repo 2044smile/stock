@@ -1,7 +1,13 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
+<div class="container bg-light">
+    <h1 class="text-center p-3 fw-bold">대통령 뉴스룸 FACT</h1>
+    <button type="button" class="btn btn-info float-end mx-1"><a href="?ordering=-date" class="text-decoration-none text-black">내림차순</a></button>
+    <button type="button" class="btn btn-info float-end mx-1"><a href="?ordering=date" class="text-decoration-none text-black">오름차순</a></button>
     {% for president in presidentfact_list %}
-        {{ president.title }}
+        <a href="{{ president.link }}" class="text-decoration-none text-black fw-bold fs-3">{{ president.title }}</a>
+        <p class="fs-5">{{ president.date|date:"Y년 m월 d일"}}</p>
     {% endfor %}
+</div>
 {% endblock %}
