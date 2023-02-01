@@ -1,17 +1,5 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block header %}
-<header class="bg-black p-5">
-    <div class="container">
-        <h1><a href="{% url 'index' %}" class="text-decoration-none text-white">개미 이야기</a></h1>
-    </div>
-    <nav class="container pt-3">
-        <a href="{% url 'stock_list' %}" class="text-decoration-none text-white px-3">텔레그램 실시간 뉴스</a>
-        <a href="" class="text-decoration-none text-white px-3">대통령 뉴스룸</a>
-        <a href="" class="text-decoration-none text-white px-3">종목 지정 실시간 뉴스</a>
-    </nav>
-</header>
-{% endblock %}
 {% block content %}
 <div class="container bg-light">
     <h1 class="text-center p-3 fw-bold">텔레그램 실시간 뉴스 정보</h1>
@@ -20,7 +8,6 @@
     {% for stock in stock_list %}
         <a href="{{ stock.url }}" class="text-decoration-none text-black fw-bold fs-3">{{ stock.title }}</a>
         <p class="fs-5">{{ stock.date|date:"Y년 m월 d일 H시 i분"}}</p>
-        
     {% endfor %}
 </div>
     <nav aria-label="Pagination">
