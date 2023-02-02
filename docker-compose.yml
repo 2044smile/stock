@@ -13,8 +13,13 @@ services:
     platform: linux/amd64
   db:
     image: postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
     environment:
-        POSTGRES_DB: postgres
-        POSTGRES_USER: postgres
-        POSTGRES_PASSWORD: postgres
+        POSTGRES_DB: ${postgres_database}
+        POSTGRES_USER: ${postgres_username}
+        POSTGRES_PASSWORD: ${postgres_password}
     platform: linux/amd64
+
+volumes:
+  postgres_data:
