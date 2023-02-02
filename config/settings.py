@@ -22,7 +22,7 @@ os.environ["DJANGO_ALLOW_ASYNC_UNSAFE"] = 'true'
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-dqhtln4fmrp!66y+anetn4eianxy3n@wx#og%d7(ys9+k2v1p2'
+SECRET_KEY = os.getenv("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
