@@ -10,9 +10,11 @@ services:
     - .:/code
     depends_on: 
     - db
+    platform: linux/amd64
   db:
     image: postgres
     environment:
         POSTGRES_DB: postgres
         POSTGRES_USER: postgres
         POSTGRES_PASSWORD: postgres
+    platform: linux/amd64
