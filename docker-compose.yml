@@ -5,11 +5,13 @@ services:
     build: .
     command: poetry run python manage.py runserver 0:8000
     ports:
-    - "8000:8000"
+      - "8000:8000"
     volumes:
-    - .:/code
+      - .:/code
     depends_on: 
-    - db
+      - db
+    env_file:
+      - ./.env
     platform: linux/amd64
   db:
     image: postgres
@@ -19,7 +21,9 @@ services:
         POSTGRES_DB: ${postgres_database}
         POSTGRES_USER: ${postgres_username}
         POSTGRES_PASSWORD: ${postgres_password}
+    ports:
+      - "5432:5432"
     platform: linux/amd64
 
 volumes:
-  postgres_data:
+  postgres_db:
