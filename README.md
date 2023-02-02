@@ -39,6 +39,25 @@ Link: [stackoverflow](https://stackoverflow.com/questions/62391946/how-to-downlo
    2. docker run -it -p 8000:8000 --name container -v /Users/cslee/vscode/stock:/code/ stock
       1. -v(볼륨) 옵션 : 코드가 수정되면 감지하고 재시작
       2. -e(environment) *옵션 : 중요
+3. Docker-compose
+   1. docker-compose up -d --build
+   2. and a m1 mac 'platform: linux/amd64' in docker-compose
+   3. env_file ./.env and set ${POSTGRES_DATABASE}
+4. django-environ
+   1. 
+   ```
+   import environ
+   env = environ.Env(DEBUG=(bool, True))
+   environ.Env.read_env(
+      env_file=os.path.join(BASE_DIR, '.env')
+   )
+
+   SECRET_KEY = env('SECRET_KEY')
+   and
+   Don't ever use 'space bar'
+   A = 'A' (x)
+   A='A' (O)
+   ```
 
 ## Reference
 - https://docs.telethon.dev/en/stable/index.html
