@@ -14,7 +14,7 @@ services:
   db:
     image: postgres
     volumes:
-      - postgres_data:/var/lib/postgresql/data/
+      - postgres_db:/var/lib/postgresql/data/
     environment:
         POSTGRES_DB: ${postgres_database}
         POSTGRES_USER: ${postgres_username}
