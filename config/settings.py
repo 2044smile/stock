@@ -97,11 +97,13 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # }
 DATABASES = {
     'default': {
-        "ENGINE": "django.db.backends.postgresql_psycopg2",
+        "ENGINE": "django.db.backends.postgresql",
         "NAME": env('POSTGRES_DATABASE'),
         "USER": env('POSTGRES_USERNAME'),
         "PASSWORD": env('POSTGRES_PASSWORD'),
         "HOST": "db",
+        # "db" -> docker-compose 로 띄운 db(postgres)를 바라보는 것
+        # "localhost" -> docker-compose 로 띄운 web(django)의 database 를 바라보는 것
         "PORT": 5432,
     }
 }
