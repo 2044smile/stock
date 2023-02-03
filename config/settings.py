@@ -102,9 +102,9 @@ DATABASES = {
         "USER": env('POSTGRES_USERNAME'),
         "PASSWORD": env('POSTGRES_PASSWORD'),
         "HOST": "db",
+        "PORT": 5432,
         # "db" -> docker-compose 로 띄운 db(postgres)를 바라보는 것
         # "localhost" -> docker-compose 로 띄운 web(django)의 database 를 바라보는 것
-        "PORT": 5432,
     }
 }
 

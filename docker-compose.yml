@@ -5,6 +5,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    container_name: stock_web
     command: poetry run python manage.py runserver 0:8000
     ports:
       - "8000:8000"
@@ -16,9 +17,12 @@ services:
       - ./.env
     links:
       - db:db
+    networks:
+      - djangonetwork
     platform: linux/amd64
   db:
     image: postgres
+    container_name: stock_db
     volumes:
       - postgres_db:/var/lib/postgresql/data/
     environment:
@@ -27,7 +31,13 @@ services:
         POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
     ports:
       - "5432:5432"
+    networks:
+      - djangonetwork
     platform: linux/amd64
 
 volumes:
   postgres_db:
+
+networks:
+  djangonetwork:
+    driver: bridge
