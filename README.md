@@ -6,6 +6,7 @@ I use Django, Slack, Telegram and get stock information
 2. django-telethon use [stackoverflow](https://stackoverflow.com/questions/68976078/using-telethon-with-a-django-application)
 3. bootstrap [url](https://django-bootstrap-v5.readthedocs.io/en/latest/quickstart.html)
 4. [What is the most pythonic way to check if multiple variables are not None?](https://stackoverflow.com/questions/42360956/what-is-the-most-pythonic-way-to-check-if-multiple-variables-are-not-none)
+5. Serializer and Swagger(drf-yasg) are introduction
 
 ## django-telegram
 ### problem
