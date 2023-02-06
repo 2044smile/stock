@@ -34,7 +34,8 @@ Link: [stackoverflow](https://stackoverflow.com/questions/62391946/how-to-downlo
 ## env
 1. Poetry
    1. poetry install
-   2. poetry run python manage.py runserver 0.0.0.0:8000
+   2. poetry add 
+   3. poetry run python manage.py runserver 0.0.0.0:8000
 2. ~~Docker~~
    1. ~~docker build -t stock .~~
    2. ~~docker run -it -p 8000:8000 --name container -v /Users/cslee/vscode/stock:/code/ stock~~
