@@ -2,9 +2,7 @@ version: "3"
 
 services:
   web:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    build: .
     container_name: stock_web
     command: poetry run python manage.py runserver 0:8000
     ports:
@@ -21,10 +19,8 @@ services:
     container_name: stock_db
     volumes:
       - postgres_db:/var/lib/postgresql/data/
-    environment:
-        POSTGRES_DB: ${POSTGRES_DATABASE}
-        POSTGRES_USER: ${POSTGRES_USERNAME}
-        POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    env_file:
+      - ./.env
     ports:
       - "5432:5432"
     platform: linux/amd64
