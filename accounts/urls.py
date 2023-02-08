@@ -3,7 +3,4 @@ from django.urls import path, include
 
 
 urlpatterns = [
-    path('signin/', ),
-    path('signup/'),
-    path('signout/')
 ]
