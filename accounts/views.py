@@ -2,6 +2,7 @@ import os, requests
 
 from django.shortcuts import redirect, HttpResponse
 from django.views import View
+from django.http.response import JsonResponse
 
 
 class AccountKakaoView(View):
@@ -22,10 +23,12 @@ class AccountKakaoCallBackView(View):
             "code": request.GET.get('code')
         }
 
-        kakao_token_api = "https://kauth.kakao.com/oauth/token"
-        access_token = requests.post(kakao_token_api, data=data).json()["access_token"]
+        token_response = requests.post("https://kauth.kakao.com/oauth/token", data=data)
 
-        kakao_account_api = "https://kapi.kakao.com/v2/user/me"
-        account_info = requests.get(kakao_account_api, headers={"Authorization": f"Bearer ${access_token}"}).json()
+        access_token = token_response.json().get('access_token')
 
-        return HttpResponse(f"access_token : {account_info}")
+        user_info = requests.get("https://kapi.kakao.com/v2/user/me", headers={"Authorization": f"Bearer {access_token}"})
+        
+        dic = {"token": user_info.json()}
+
+        return JsonResponse(dic, json_dumps_params={'ensure_ascii': False})
