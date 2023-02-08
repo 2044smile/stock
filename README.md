@@ -65,6 +65,7 @@ Link: [stackoverflow](https://stackoverflow.com/questions/62391946/how-to-downlo
    2. poetry run python manage.py dumpdata --exclude auth.permission --exclude contenttypes > stock.json
    3. poetry run python manage.py loaddata stock.json
    4. Change HOST: localhost to HOST: DB
+   5. Mac(로컬) 에서 접근보다 docker-compose exec -it web /bin/bash 를 사용할 것
 
 ## Reference
 - https://docs.telethon.dev/en/stable/index.html
