@@ -25,7 +25,7 @@ class Stock(BaseModel):
 
     title = models.CharField(max_length=255)  # 국내 대체육 시장 200억 ...
     description = models.TextField()  # 상세 설명
-    site_name = models.CharField(max_length=32)  # 연론사 뷰
+    site_name = models.CharField(max_length=255)  # 연론사 뷰
     url = models.URLField(max_length=255)  # 뉴스 링크
     date = models.DateTimeField()  # 작성 날짜
 
