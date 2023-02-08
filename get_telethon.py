@@ -17,10 +17,18 @@ from django.core.exceptions import ObjectDoesNotExist
 
 
 def get_telethon():
-    API_ID = os.getenv('TELETHON_API_ID')
-    API_HASH = os.getenv('TELETHON_API_HASH')
+    from pathlib import Path
+    import environ
+    BASE_DIR = Path(__file__).resolve().parent.parent
 
-    channel_list = [os.getenv('channel_one'), os.getenv('channel_two')]
+    env = environ.Env(DEBUG=(bool, True))
+    environ.Env.read_env(
+        env_file=os.path.join(BASE_DIR, '.env')
+    )
+    API_ID = env('TELETHON_API_ID')
+    API_HASH = env('TELETHON_API_HASH')
+
+    channel_list = [env('CHANNEL_ONE'), env('CHANNEL_TWO')]
     success_news_link = []
     fail_news_link = []
 
@@ -41,10 +49,10 @@ def get_telethon():
 
     if not telegram_client.is_user_authorized():
         # phone = input('Enter your phone number: ')
-        phone = os.getenv('TELETHON_PHONE')
+        phone = env('TELETHON_PHONE')
         telegram_client.send_code_request(phone)
         # code = input('Enter the code you received: ')
-        code = os.getenv('TELETHON_CODE')
+        code = env('TELETHON_CODE')
         try:
             telegram_client.sign_in(phone, code)
         except SessionPasswordNeededError:
