@@ -49,18 +49,6 @@ INSTALLED_APPS = [
 
     'django_telethon',
     'django_extensions',
-
-    # kakao
-    'rest_framework',
-    'rest_framework.authtoken',
-    'rest_framework_simplejwt.token_blacklist',
-    'dj_rest_auth',
-    'dj_rest_auth.registration',
-    'django.contrib.sites',
-    'allauth',
-    'allauth.account',
-    'allauth.socialaccount',
-    'allauth.socialaccount.providers.kakao',
 ]
 
 MIDDLEWARE = [
