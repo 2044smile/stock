@@ -60,6 +60,11 @@ Link: [stackoverflow](https://stackoverflow.com/questions/62391946/how-to-downlo
    A = 'A' (x)
    A='A' (O)
    ```
+5. Dumpdata & Loaddata
+   1. Change HOST: DB to HOST: localhost
+   2. poetry run python manage.py dumpdata --exclude auth.permission --exclude contenttypes > stock.json
+   3. poetry run python manage.py loaddata stock.json
+   4. Change HOST: localhost to HOST: DB
 
 ## Reference
 - https://docs.telethon.dev/en/stable/index.html
