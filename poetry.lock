@@ -712,24 +712,6 @@ files = [
 ]
 
 [[package]]
-name = "dj-rest-auth"
-version = "2.2.7"
-description = "Authentication and Registration in Django Rest Framework"
-category = "main"
-optional = false
-python-versions = ">=3.5"
-files = [
-    {file = "dj-rest-auth-2.2.7.tar.gz", hash = "sha256:911bcf377df68c958a7f534def7715b61f3d887a46fbb53ca7666244b7c0b143"},
-]
-
-[package.dependencies]
-Django = ">=2.0"
-djangorestframework = ">=3.7.0"
-
-[package.extras]
-with-social = ["django-allauth (>=0.40.0,<0.53.0)"]
-
-[[package]]
 name = "django"
 version = "4.1.3"
 description = "A high-level Python web framework that encourages rapid development and clean, pragmatic design."
@@ -886,31 +868,6 @@ files = [
 [package.dependencies]
 django = ">=3.0"
 pytz = "*"
-
-[[package]]
-name = "djangorestframework-simplejwt"
-version = "5.2.2"
-description = "A minimal JSON Web Token authentication plugin for Django REST Framework"
-category = "main"
-optional = false
-python-versions = ">=3.7"
-files = [
-    {file = "djangorestframework_simplejwt-5.2.2-py3-none-any.whl", hash = "sha256:4c0d2e2513e12587d93501ac091781684a216c3ee614eb3b5a10586aef5ca845"},
-    {file = "djangorestframework_simplejwt-5.2.2.tar.gz", hash = "sha256:d27d4bcac2c6394f678dea8b4d0d511c6e18a7f2eb8aaeeb8a7de601aeb77c42"},
-]
-
-[package.dependencies]
-django = "*"
-djangorestframework = "*"
-pyjwt = ">=1.7.1,<3"
-
-[package.extras]
-crypto = ["cryptography (>=3.3.1)"]
-dev = ["Sphinx (>=1.6.5,<2)", "cryptography", "flake8", "ipython", "isort", "pep8", "pytest", "pytest-cov", "pytest-django", "pytest-watch", "pytest-xdist", "python-jose (==3.3.0)", "sphinx-rtd-theme (>=0.1.9)", "tox", "twine", "wheel"]
-doc = ["Sphinx (>=1.6.5,<2)", "sphinx-rtd-theme (>=0.1.9)"]
-lint = ["flake8", "isort", "pep8"]
-python-jose = ["python-jose (==3.3.0)"]
-test = ["cryptography", "pytest", "pytest-cov", "pytest-django", "pytest-xdist", "tox"]
 
 [[package]]
 name = "executing"
@@ -2869,4 +2826,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "db1e50756b9b40d1ca00b959891c9eb749286aec7d760eaf49b3f8d69d2b16ed"
+content-hash = "f4c02cbebb1ccca4a7ad6c20e5dc763b9be33f38f1c3ad528fecd3d410964f0d"
