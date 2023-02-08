@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'stock',
+    'accounts',
 
     'django_telethon',
     'django_extensions',
@@ -56,6 +57,7 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt.token_blacklist',
     'dj_rest_auth',
     'dj_rest_auth.registration',
+    'django.contrib.sites',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
@@ -189,4 +191,5 @@ STATICFILES_DIRS = (
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 SITE_ID = 1
-# AUTH_USER_MODEL = 'accounts.CustomUser'
+
+AUTH_USER_MODEL = 'accounts.CustomUser'
