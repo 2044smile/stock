@@ -1,4 +1,4 @@
-import re, os, requests
+import re, os, requests, time
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "config.settings")
 
 import django
@@ -8,6 +8,7 @@ from datetime import datetime
 from stock.models import PresidentFact
 
 from bs4 import BeautifulSoup
+from apscheduler.schedulers.background import BackgroundScheduler
 
 
 class PresidentNewsroomCrawling:
@@ -59,6 +60,16 @@ class PresidentNewsroomCrawling:
                         )
         elif target == 'briefing':
             html = self.president_newsroom_briefing_url
-        
-p = PresidentNewsroomCrawling()
-p.crawler('fact')
+
+
+if __name__ == '__main__':
+    sched = BackgroundScheduler(timezone="Asia/Seoul")
+    sched.start()
+
+    while True:
+        @sched.scheduled_job('cron', hour='15', minute='0', second='1')
+        def job_am():
+            p = PresidentNewsroomCrawling()
+            p.crawler('fact')
+
+        time.sleep(1)
