@@ -8,6 +8,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     
     path('stock/', include("stock.urls")),
+    path('accounts/', include("accounts.urls")),
 
     path('telegram/', django_telethon_urls()),
 ]

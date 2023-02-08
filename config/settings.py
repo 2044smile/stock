@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'stock',
+    'accounts',
 
     'django_telethon',
     'django_extensions',
