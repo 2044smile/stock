@@ -7,6 +7,12 @@ I use Django, Slack, Telegram and get stock information
 3. bootstrap [url](https://django-bootstrap-v5.readthedocs.io/en/latest/quickstart.html)
 4. [What is the most pythonic way to check if multiple variables are not None?](https://stackoverflow.com/questions/42360956/what-is-the-most-pythonic-way-to-check-if-multiple-variables-are-not-none)
 5. Serializer and Swagger(drf-yasg) are introduction
+6. Dumpdata & Loaddata
+   1. Change HOST: DB to HOST: localhost
+   2. poetry run python manage.py dumpdata --exclude auth.permission --exclude contenttypes > stock.json
+   3. poetry run python manage.py loaddata stock.json
+   4. Change HOST: localhost to HOST: DB
+   5. Mac(로컬) 에서 접근보다 docker-compose exec -it web /bin/bash 를 사용할 것
 
 ## django-telegram
 ### problem
@@ -60,12 +66,6 @@ Link: [stackoverflow](https://stackoverflow.com/questions/62391946/how-to-downlo
    A = 'A' (x)
    A='A' (O)
    ```
-5. Dumpdata & Loaddata
-   1. Change HOST: DB to HOST: localhost
-   2. poetry run python manage.py dumpdata --exclude auth.permission --exclude contenttypes > stock.json
-   3. poetry run python manage.py loaddata stock.json
-   4. Change HOST: localhost to HOST: DB
-   5. Mac(로컬) 에서 접근보다 docker-compose exec -it web /bin/bash 를 사용할 것
 
 ## Reference
 - https://docs.telethon.dev/en/stable/index.html
