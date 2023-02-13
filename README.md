@@ -35,9 +35,11 @@ I use Django, Slack, Telegram and get stock information
 <br>How do I use photo file_reference <br>
 Link: [stackoverflow](https://stackoverflow.com/questions/62391946/how-to-download-images-to-my-local-pc-using-telethon)
 
+**5. nohup problem**
 
+I use to 'nohup poetry run python get_telethon.py' in local but error by 'ModuleNotFoundError: No module named 'django.db.migrations.migration'
+But I use to 'nohup poetry run python get_telethon.py' in docker-compose it's not error and I have to check it out tomorrow
 
-**4. 이상한 오류가 나오는지 수시로 확인**
 ## env
 1. Poetry
    1. poetry install
