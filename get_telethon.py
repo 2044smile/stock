@@ -93,6 +93,8 @@ def get_telethon():
                         print('There are many difficult problems')
                     except ObjectDoesNotExist:
                         print('Object Does Not Exist')
+                    except Stock.DoesNotExist:
+                        print('No Stock matches the given query.')
         except ValueError:
             print(f'Sorry no {target_user} user was found')
 
