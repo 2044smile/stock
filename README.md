@@ -23,7 +23,6 @@ I use Django, Slack, Telegram and get stock information
 ~~2. 네이버 카페~~<br>
    ~~* 네이버 카페에 가입해야만 보이는 정보들이 존재함~~<br>
 **<span style="color:red;">가입을 안해도 되는 링크로 대체**<br>
-<br>
 **3. 비동기로 텔레그램의 데이터를 실시간으로 가져올 수 있어야 한다.**
 <br>~~* 3-1. Redis [poetry add redis]~~
 <br>~~* 3-2. Celery [poetry add Celery]~~
@@ -32,7 +31,8 @@ I use Django, Slack, Telegram and get stock information
 <br>4-1. Run time of job "job_am (trigger: cron[hour='14', minute='0,15,30,53', second='1'], next run at: 2023-01-17 14:00:01 KST)" was missed by 0:20:16.952368
 
 **4. message.media.webpage.photo**
-<br>How do I use photo file_reference <br>
+
+How do I use photo file_reference
 Link: [stackoverflow](https://stackoverflow.com/questions/62391946/how-to-download-images-to-my-local-pc-using-telethon)
 
 **5. nohup problem**
