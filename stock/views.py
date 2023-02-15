@@ -22,3 +22,6 @@ class PresidentListView(ListView):
     def get_ordering(self):
         ordering = self.request.GET.get('ordering', '-date')
         return ordering
+
+class StockFavoriteIndexView(TemplateView):
+    template_name = 'stock_favorite.html'
