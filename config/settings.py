@@ -46,11 +46,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'stock',
-
     'accounts',
     'django.contrib.sites',
+    
     'allauth',
-
     'django_telethon',
     'django_extensions',
 ]
@@ -72,7 +71,8 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
             os.path.join(BASE_DIR, 'templates'),
-            os.path.join(BASE_DIR, 'stock', 'templates', 'stock')
+            os.path.join(BASE_DIR, 'stock', 'templates', 'stock'),
+            os.path.join(BASE_DIR, 'accounts', 'templates', 'accounts')
         ],
         'APP_DIRS': True,
         'OPTIONS': {
