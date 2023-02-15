@@ -28,7 +28,7 @@
             <nav class="container pt-3">
                 <a href="{% url 'stock_list' %}" class="text-decoration-none text-white px-3">텔레그램 실시간 뉴스</a>
                 <a href="{% url 'presidentfact_list' %}" class="text-decoration-none text-white px-3">대통령 뉴스룸</a>
-                <a href="" class="text-decoration-none text-white px-3">종목 지정 실시간 뉴스</a>
+                <a href="{% url 'stock_favorite' %}" class="text-decoration-none text-white px-3">즐겨찾는 주식</a>
             </nav>
         </header>
         {% endblock %}
