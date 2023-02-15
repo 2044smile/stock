@@ -1,6 +1,6 @@
 import os, requests
 
-from django.shortcuts import redirect, HttpResponse
+from django.shortcuts import redirect, HttpResponse, render
 from django.views import View
 from django.http.response import JsonResponse
 
@@ -24,11 +24,17 @@ class AccountKakaoCallBackView(View):
         }
 
         token_response = requests.post("https://kauth.kakao.com/oauth/token", data=data)
-
         access_token = token_response.json().get('access_token')
 
         user_info = requests.get("https://kapi.kakao.com/v2/user/me", headers={"Authorization": f"Bearer {access_token}"})
-        
-        dic = {"token": user_info.json()}
+        token = {"token": user_info.json()}
+        request.session['user'] = token
 
-        return JsonResponse(dic, json_dumps_params={'ensure_ascii': False})
+        return redirect(f"http://localhost:8000/accounts/signin")
+
+
+class AccountSigninView(View):
+    def get(self, request, **kwargs):
+        context = request.session.get('user')  # token = {"token": user_info.json()}
+
+        return render(request, 'signin.html', context=context)
