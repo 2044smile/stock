@@ -3,5 +3,14 @@
 {% block content %}
 <div class="container bg-light">
     <h1 class="text-center p-3 fw-bold">종목 지정 실시간 뉴스</h1>
+    {% if user.is_authenticated %}
+    <h1>로그인 되어 있습니다. {{ user }}</h1>
+    {% else %}
+    <div class="text-center">
+        <a href="{% url 'kakao_login' %}" class="text-decoration-none text-black fw-bold fs-3">
+            <img src="/static/css/images/kakao_login_large_narrow.png" alt="">
+        </a>
+    </div>
+    {% endif %}
 </div>
 {% endblock %}
