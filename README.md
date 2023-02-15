@@ -14,6 +14,7 @@ I use Django, Slack, Telegram and get stock information
    4. Change HOST: localhost to HOST: DB
    5. Mac(로컬) 에서 접근보다 docker-compose exec -it web /bin/bash 를 사용할 것
 7. I completed the kakao login and I think I'll make a jwt
+8. I make a 'Kakao Login(kakao_nickname)' + put in another information(sex, age, Id...)
 
 ## django-telegram
 ### problem
