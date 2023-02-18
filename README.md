@@ -30,7 +30,7 @@ I use Django, Slack, Telegram and get stock information
 <br>3-3. apscheduler [poetry add apscheduler 데이터 apscheduler 로 들어오는 것은 확인
 <br>4. nohup poetry run python get_telethon.py &
 <br>4-1. Run time of job "job_am (trigger: cron[hour='14', minute='0,15,30,53', second='1'], next run at: 2023-01-17 14:00:01 KST)" was missed by 0:20:16.952368
-<br>4-2. I think it makes a not 
+<br>4-2. I think it makes an error.
 
 **4. message.media.webpage.photo**
 
