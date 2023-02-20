@@ -7,5 +7,5 @@ urlpatterns = [
     path('kakao/', AccountKakaoView.as_view(), name="kakao_login"),
     path('kakao/callback/', AccountKakaoCallBackView.as_view(), name="kakao_callback"),
 
-    path('signup/', AccountSignupView.as_view(), name="signin")
+    path('signup/', AccountSignupView.as_view(), name="signup")
 ]
