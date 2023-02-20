@@ -30,10 +30,10 @@ class AccountKakaoCallBackView(View):
         token = {"token": user_info.json()}
         request.session['user'] = token
 
-        return redirect(f"http://localhost:8000/accounts/signin")
+        return redirect(f"http://localhost:8000/accounts/signup")
 
 
-class AccountSigninView(View):
+class AccountSignupView(View):
     def get(self, request, **kwargs):
         context = request.session.get('user')  # token = {"token": user_info.json()}
 
