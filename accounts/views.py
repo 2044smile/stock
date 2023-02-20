@@ -37,4 +37,12 @@ class AccountSignupView(View):
     def get(self, request, **kwargs):
         context = request.session.get('user')  # token = {"token": user_info.json()}
 
+        return render(request, 'signup.html', context=context)
+
+
+class AccountSigninView(View):
+    def post(self, request, **kwargs):
+        # 카카오 로그인이 되어 있으면 자동으로 화면을 옮겨 로그인
+        context = request.GET
+
         return render(request, 'signin.html', context=context)
