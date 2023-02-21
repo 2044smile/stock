@@ -36,13 +36,34 @@ class AccountKakaoCallBackView(View):
 class AccountSignupView(View):
     def get(self, request, **kwargs):
         context = request.session.get('user')  # token = {"token": user_info.json()}
+        print(f'AccountSignupView, {context}', flush=True)
 
         return render(request, 'signup.html', context=context)
 
 
 class AccountSigninView(View):
-    def post(self, request, **kwargs):
+    def get(self, request, **kwargs):
         # 카카오 로그인이 되어 있으면 자동으로 화면을 옮겨 로그인
-        context = request.GET
+        context = request.session.get('user')  # token = {"token": user_info.json()}
+        print(f'AccountSigninView, {context}', flush=True)
 
         return render(request, 'signin.html', context=context)
+
+
+class AccountSignoutView(View):
+    def get(self, request, **kwargs):
+        context = request.session.get('user')
+        print(f'AccountSignoutView, {context}', flush=True)
+        url = 'https://kapi.kakao.com/v1/user/logout'
+        header = {
+            'Authorization': f'bearer {context}'
+        }
+
+        response = requests.post(url, headers=header)
+        result = response.json()
+
+        if result.get('id'):
+            del request.session['user']
+            return render(request, 'index.html')
+
+        return render(request, 'index.html')
