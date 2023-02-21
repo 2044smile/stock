@@ -5,16 +5,25 @@ from stock.models import BaseModel
 
 
 class UserManager(BaseUserManager):
-    def create_user(self, email, kakao_nickname, password=None):
+    def create_user(self, email, password=None):
         if not email:
             raise ValueError('must have an email address')
 
         user = self.model(
             email=self.normalize_email(email),
-            kakao_nickname=kakao_nickname,
         )
 
         user.set_password(password)
+        user.save(using=self._db)
+        return user
+
+    def create_superuser(self, email, password=None):
+        user = self.create_user(
+            email=email,
+            password=password,
+        )
+        user.is_staff = True
+        user.is_superuser = True
         user.save(using=self._db)
         return user
 
@@ -45,6 +54,8 @@ class User(AbstractBaseUser, PermissionsMixin, BaseModel):
         verbose_name='Is active',
         default=True
     )
+    is_staff = models.BooleanField(default=False)
+    is_superuser = models.BooleanField(default=False)
 
     objects = UserManager()
     USERNAME_FIELD = 'email'
