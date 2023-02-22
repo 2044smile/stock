@@ -5,6 +5,8 @@ from django.contrib.auth.forms import UserCreationForm
 from django.urls import reverse_lazy
 from django.views import View, generic
 
+from accounts.models import User
+
 
 class AccountKakaoView(View):
     def get(self, request):
@@ -37,7 +39,14 @@ class AccountKakaoCallBackView(View):
 class AccountSignupView(View):
     def get(self, request, **kwargs):
         context = request.session.get('user')  # token = {"token": user_info.json()}
-        print(f'AccountSignupView, {context}', flush=True)
+        # class AccountSignupView(generic.CreateView):
+        # form_class = UserCreationForm
+        # success_url = reverse_lazy('index')
+        # template_name = "accounts/signup.html"
+
+        return render(request, 'signup.html', context=context)
+    def post(self, request, **kwargs):
+        context = request.session.get('user')  # token = {"token": user_info.json()}
 
         # class AccountSignupView(generic.CreateView):
         # form_class = UserCreationForm
@@ -45,6 +54,7 @@ class AccountSignupView(View):
         # template_name = "accounts/signup.html"
 
         return render(request, 'signup.html', context=context)
+
 
 
 class AccountSigninView(View):
