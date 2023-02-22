@@ -1,8 +1,9 @@
 import os, requests
 
-from django.shortcuts import redirect, HttpResponse, render
-from django.views import View
-from django.http.response import JsonResponse
+from django.shortcuts import redirect, render
+from django.contrib.auth.forms import UserCreationForm
+from django.urls import reverse_lazy
+from django.views import View, generic
 
 
 class AccountKakaoView(View):
@@ -33,10 +34,6 @@ class AccountKakaoCallBackView(View):
         return redirect(f"http://localhost:8000/accounts/signup")
 
 
-class AccountSignupView(View):
-    def get(self, request, **kwargs):
-        context = request.session.get('user')  # token = {"token": user_info.json()}
-        print(f'AccountSignupView, {context}', flush=True)
 
         return render(request, 'signup.html', context=context)
 
