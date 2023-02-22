@@ -34,6 +34,15 @@ class AccountKakaoCallBackView(View):
         return redirect(f"http://localhost:8000/accounts/signup")
 
 
+class AccountSignupView(View):
+    def get(self, request, **kwargs):
+        context = request.session.get('user')  # token = {"token": user_info.json()}
+        print(f'AccountSignupView, {context}', flush=True)
+
+        # class AccountSignupView(generic.CreateView):
+        # form_class = UserCreationForm
+        # success_url = reverse_lazy('index')
+        # template_name = "accounts/signup.html"
 
         return render(request, 'signup.html', context=context)
 
