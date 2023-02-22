@@ -40,14 +40,20 @@ class User(AbstractBaseUser, PermissionsMixin, BaseModel):
     )
     stock_code_1 = models.CharField(
         verbose_name='stock_code_1',
+        null=True,
+        blank=True,
         max_length=8
     )
     stock_code_2 = models.CharField(
         verbose_name='stock_code_2',
+        null=True,
+        blank=True,
         max_length=8
     )
     stock_code_3 = models.CharField(
         verbose_name='stock_code_3',
+        null=True,
+        blank=True,
         max_length=8
     )
     is_active = models.BooleanField(
