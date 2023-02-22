@@ -4,9 +4,11 @@
 <div class="container bg-light">
     <h1 class="text-center p-3 fw-bold">회원가입</h1>
     <form action="/accounts/signup/" method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
         <div class="form-group">
             <label for="email">Email address</label>
-            <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
+            <input type="email" class="form-control" id="email" placeholder="Enter email">
           </div>
           <div class="form-group">
             <label for="kakao-nickname">Kakao Nickname</label>

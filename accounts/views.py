@@ -6,6 +6,7 @@ from django.urls import reverse_lazy
 from django.views import View, generic
 
 from accounts.models import User
+from accounts.forms import AccountForm
 
 
 class AccountKakaoView(View):
@@ -38,41 +39,42 @@ class AccountKakaoCallBackView(View):
 
 class AccountSignupView(View):
     def get(self, request, **kwargs):
-        context = request.session.get('user')  # token = {"token": user_info.json()}
-        # class AccountSignupView(generic.CreateView):
-        # form_class = UserCreationForm
-        # success_url = reverse_lazy('index')
-        # template_name = "accounts/signup.html"
+        session = request.session.get('user')  # token = {"token": user_info.json()}
 
-        return render(request, 'signup.html', context=context)
+        return render(request, 'signup.html', context=session)
     def post(self, request, **kwargs):
-        context = request.session.get('user')  # token = {"token": user_info.json()}
+        session = request.session.get('user')  # token = {"token": user_info.json()}
+        form = AccountForm()
+        context = {
+            "form": form
+        }
+        print(context, flush=True)
 
         # class AccountSignupView(generic.CreateView):
         # form_class = UserCreationForm
         # success_url = reverse_lazy('index')
         # template_name = "accounts/signup.html"
 
-        return render(request, 'signup.html', context=context)
+        return render(request, 'signup.html', context=session)
 
 
 
 class AccountSigninView(View):
     def get(self, request, **kwargs):
         # 카카오 로그인이 되어 있으면 자동으로 화면을 옮겨 로그인
-        context = request.session.get('user')  # token = {"token": user_info.json()}
-        print(f'AccountSigninView, {context}', flush=True)
+        session = request.session.get('user')  # token = {"token": user_info.json()}
+        print(f'AccountSigninView, {session}', flush=True)
 
-        return render(request, 'signin.html', context=context)
+        return render(request, 'signin.html', context=session)
 
 
 class AccountSignoutView(View):
     def get(self, request, **kwargs):
-        context = request.session.get('user')
-        print(f'AccountSignoutView, {context}', flush=True)
+        session = request.session.get('user')
+        print(f'AccountSignoutView, {session}', flush=True)
         url = 'https://kapi.kakao.com/v1/user/logout'
         header = {
-            'Authorization': f'bearer {context}'
+            'Authorization': f'bearer {session}'
         }
 
         response = requests.post(url, headers=header)
