@@ -6,28 +6,10 @@
     <form action="/accounts/signup/" method="post">
       {% csrf_token %}
       {{ form.as_p }}
-        <div class="form-group">
-            <label for="email">Email address</label>
-            <input type="email" class="form-control" id="email" placeholder="Enter email">
-          </div>
-          <div class="form-group">
-            <label for="kakao-nickname">Kakao Nickname</label>
-            <input type="kakao-nickname" class="form-control" id="kakao-nickname" placeholder="Kakao Nickname" value="{{ token.kakao_account.profile.nickname }}">
-          </div>
-          <div class="form-group">
-            <label for="password">Password</label>
-            <input type="password" class="form-control" id="password" placeholder="Password">
-          </div>
-          <div class="form-group mt-3">
-            <label for="favorite-stock">주식종목 코드 and 종목명 EX) 005930</label>
-            <input type="favorite-stock-1" class="form-control mb-3" id="favorite-stock-1" placeholder="주식종목 코드를 적어주세요.">
-            <input type="favorite-stock-2" class="form-control mb-3" id="favorite-stock-2" placeholder="주식종목 코드를 적어주세요.">
-            <input type="favorite-stock-3" class="form-control mb-3" id="favorite-stock-3" placeholder="주식종목 코드를 적어주세요.">
-          </div>
-          <div class="text-center">
-            <button type="submit" class="btn btn-primary px-5">Sign Up</button>
-                <!-- <a href="{% url 'index' %}" class="text-decoration-none text-white" role="button">Submit</a>  -->
-          </div>
+      <!-- <h1>{{ session.token.kakao_account.profile.nickname }}</h1> -->
+      <div class="text-center">
+        <button type="submit" class="btn btn-primary px-5">Sign Up</button>
+      </div>
     </form>
 </div>
 {% endblock %}

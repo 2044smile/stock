@@ -39,11 +39,17 @@ class AccountKakaoCallBackView(View):
 
 class AccountSignupView(View):
     def get(self, request, **kwargs):
-        session = request.session.get('user')  # token = {"token": user_info.json()}
+        session = request.session.get('user')
 
-        return render(request, 'signup.html', context=session)
+        form = AccountForm()
+        context = {
+            "session": session,
+            "form": form
+        }
+
+        return render(request, 'signup.html', context=context)
     def post(self, request, **kwargs):
-        session = request.session.get('user')  # token = {"token": user_info.json()}
+        session = request.session.get('user')
         form = AccountForm()
         context = {
             "form": form
@@ -55,7 +61,7 @@ class AccountSignupView(View):
         # success_url = reverse_lazy('index')
         # template_name = "accounts/signup.html"
 
-        return render(request, 'signup.html', context=session)
+        return render(request, 'signup.html', context=context)
 
 
 
