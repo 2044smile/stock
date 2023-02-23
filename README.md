@@ -16,6 +16,12 @@ I use Django, Slack, Telegram and get stock information
 7. I completed the kakao login and I think I'll make a jwt
 8. I make a 'Kakao Login(kakao_nickname)' + put in another information(sex, age, Id...)
 9. Worked to include kakao login informations in the database
+10. postgresql error: sorry, too many clients already
+    1.  vi /var/lib/postgresql/data/postgresql.conf
+    2.  change max_connections: 100 to 300
+    3.  docker restart container_id
+    4.  psql -U tim
+    5.  show max_connections 300 checked
 
 ## django-telegram
 ### problem
