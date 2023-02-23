@@ -79,7 +79,7 @@ def get_telethon():
                                 print('Not enough')
                                 break
 
-                            Stock.objects.update_or_create(
+                            Stock.objects.create(
                                 channel=obj,
                                 title=title,
                                 description=description,
