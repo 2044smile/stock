@@ -42,6 +42,8 @@ class AccountSignupView(View):
         session = request.session.get('user')
 
         form = AccountForm()
+        form.fields['kakao_nickname'].initial = session['token']['kakao_account']['profile']['nickname']
+
         context = {
             "session": session,
             "form": form
