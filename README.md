@@ -22,6 +22,7 @@ I use Django, Slack, Telegram and get stock information
     3.  docker restart container_id
     4.  psql -U tim
     5.  show max_connections 300 checked
+11. I don't know why nohup suddenly closed
 
 ## django-telegram
 ### problem
