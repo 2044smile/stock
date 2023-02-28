@@ -52,7 +52,10 @@ class AccountSignupView(View):
         return render(request, 'signup.html', context=context)
     def post(self, request, **kwargs):
         session = request.session.get('user')
+
         form = AccountForm()
+        form.is_valid()
+
         context = {
             "form": form
         }
