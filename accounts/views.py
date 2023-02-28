@@ -51,23 +51,16 @@ class AccountSignupView(View):
 
         return render(request, 'signup.html', context=context)
     def post(self, request, **kwargs):
-        session = request.session.get('user')
-
-        form = AccountForm()
-        form.is_valid()
+        form = AccountForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('signin')
 
         context = {
             "form": form
         }
-        print(context, flush=True)
 
-        # class AccountSignupView(generic.CreateView):
-        # form_class = UserCreationForm
-        # success_url = reverse_lazy('index')
-        # template_name = "accounts/signup.html"
-
-        return render(request, 'signup.html', context=context)
-
+        return render(request, 'signin.html', context=context)
 
 
 class AccountSigninView(View):
