@@ -42,6 +42,8 @@ class AccountSignupView(View):
         session = request.session.get('user')
 
         # 여기서 세션이 없다면 회원가입 차단하는 로직 추가
+        if session is None:
+            return redirect('kakao_login')
 
         form = AccountForm()
         form.fields['kakao_nickname'].initial = session['token']['kakao_account']['profile']['nickname']
