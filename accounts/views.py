@@ -48,6 +48,10 @@ class AccountSignupView(View):
         form = AccountForm()
         form.fields['kakao_nickname'].initial = session['token']['kakao_account']['profile']['nickname']
 
+        # user = User.objects.get(kakao_nickname=session['token']['kakao_account']['profile']['nickname'])
+        # 카카오 로그인 시 [필수] 와 [선택] 선택의 경우 사용자가 선택하지 않으면 이메일을 따로 입력하던가 해야될 듯?
+        # 아니면 카카오스토리 프로필 URL 의 경우에는 중복이 될 수 없으므로 이것으로 처리해도 될 듯
+
         context = {
             "session": session,
             "form": form
