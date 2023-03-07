@@ -51,6 +51,7 @@ class AccountSignupView(View):
         # user = User.objects.get(kakao_nickname=session['token']['kakao_account']['profile']['nickname'])
         # 카카오 로그인 시 [필수] 와 [선택] 선택의 경우 사용자가 선택하지 않으면 이메일을 따로 입력하던가 해야될 듯?
         # 아니면 카카오스토리 프로필 URL 의 경우에는 중복이 될 수 없으므로 이것으로 처리해도 될 듯
+        ## 추가적으로 카카오로 아이디가 회원가입이 되어 있으면 redirect 해서 로그인을 자동으로 수행하도록
 
         context = {
             "session": session,
