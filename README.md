@@ -94,5 +94,5 @@ I had a problem but I solved it.<br>
 Let us start again.
 </h3>
 <h3>20230228~20230305 Travel<br>
-I will going to the Korea
+I'm going back to Korea after the trip.
 </h3>
