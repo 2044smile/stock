@@ -27,7 +27,7 @@ I use Django, Slack, Telegram and get stock information
     1.  poetry run python manage.py makemigrations admin
     2.  poetry run python manage.py migrate admin zero --fake
         1.  '# fake 데이터베이스에 적용이 된 것 처럼 '속인다''
-        2.  '# zero 마이그레이션 파일을 하나도 적용하지 않은 것처럼 로그들을 수정'
+        2.  '# zero 마이그레이션 파일을 하나도 적용하지 않은 것처럼 로그들을 수정
 
 ## django-telegram
 ### problem
