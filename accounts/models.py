@@ -57,7 +57,7 @@ class User(AbstractBaseUser, PermissionsMixin, BaseModel):
         max_length=8
     )
     is_active = models.BooleanField(
-        verbose_name='Is active',
+        verbose_name='is active',
         default=True
     )
     is_staff = models.BooleanField(default=False)
