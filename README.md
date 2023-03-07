@@ -23,6 +23,9 @@ I use Django, Slack, Telegram and get stock information
     4.  psql -U tim
     5.  show max_connections 300 checked
 11. I don't know why nohup suddenly closed
+12. Django django_admin_log' doesn't exist
+    1.  poetry run python manage.py makemigrations admin
+    2.  poetry run python manage.py migrate admin zero --fake
 
 ## django-telegram
 ### problem
