@@ -38,6 +38,12 @@ class User(AbstractBaseUser, PermissionsMixin, BaseModel):
         verbose_name='Kakao Nickname',
         max_length=32
     )
+    kakao_email = models.CharField(
+        verbose_name='Kakao Email',
+        null=True,
+        blank=True,
+        max_length=64
+    )
     stock_code_1 = models.CharField(
         verbose_name='stock_code_1',
         null=True,
