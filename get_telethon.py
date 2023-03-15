@@ -9,7 +9,7 @@ import asyncio
 from telethon.sync import TelegramClient
 from django_telethon.sessions import DjangoSession
 from django_telethon.models import App, ClientSession
-from telethon.errors import SessionPasswordNeededError
+from telethon.errors import SessionPasswordNeededError, FloodError
 
 from stock.models import Channel, Stock
 from apscheduler.schedulers.background import BackgroundScheduler
@@ -98,6 +98,8 @@ def get_telethon():
                         print('Object Does Not Exist')
                     except IntegrityError:
                         print('duplicate key value violates unique constraint')
+                    except FloodError:
+                        print('A wait of \'\' seconds is required')
         except ValueError:
             print(f'Sorry no {target_user} user was found')
 
