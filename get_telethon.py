@@ -104,7 +104,7 @@ def get_telethon():
 
 
 if __name__ == '__main__':
-    sched = BackgroundScheduler(timezone="Asia/Seoul")
+    sched = BackgroundScheduler(timezone="Asia/Seoul", job_defaults={'max_instances': 2})
     sched.start()
 
     while True:
