@@ -65,7 +65,10 @@ def get_telethon():
             # await telegram_client.send_message(f'@{target_user}', 'Hello from django!')
             for channel in channel_list:
                 obj = Channel.objects.get(name=channel)
-                await telegram_client.get_entity(channel)
+                try:
+                    await telegram_client.get_entity(channel)
+                except FloodError:
+                        print('A wait of \'\' seconds is required')
                 # await telegram_client.download_media(message.media, "save path")
 
                 for message in await telegram_client.get_messages(channel, limit=20):
@@ -98,8 +101,6 @@ def get_telethon():
                         print('Object Does Not Exist')
                     except IntegrityError:
                         print('duplicate key value violates unique constraint')
-                    except FloodError:
-                        print('A wait of \'\' seconds is required')
         except ValueError:
             print(f'Sorry no {target_user} user was found')
 
