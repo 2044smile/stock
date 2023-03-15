@@ -14,6 +14,7 @@ from telethon.errors import SessionPasswordNeededError
 from stock.models import Channel, Stock
 from apscheduler.schedulers.background import BackgroundScheduler
 from django.core.exceptions import ObjectDoesNotExist
+from django.db import IntegrityError
 
 
 def get_telethon():
@@ -95,6 +96,8 @@ def get_telethon():
                         print('Stock Does Not Exist')
                     except ObjectDoesNotExist:
                         print('Object Does Not Exist')
+                    except IntegrityError:
+                        print('duplicate key value violates unique constraint')
         except ValueError:
             print(f'Sorry no {target_user} user was found')
 
