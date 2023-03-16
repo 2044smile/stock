@@ -41,7 +41,7 @@ class AccountSignupView(View):
     def get(self, request, **kwargs):
         session = request.session.get('user')
 
-        # 여기서 세션이 없다면 회원가입 차단하는 로직 추가
+        # 여기서 세션이 없다면 회원가입 차단하는 로직 추가 즉 처음 로그인 한다면 kakao_login 으로 이동
         if session is None:
             return redirect('kakao_login')
 
