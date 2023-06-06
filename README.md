@@ -1,5 +1,5 @@
 # stock
-I use Django, Slack, Telegram and get stock information
+I use Django, Telegram and get stock information
 
 ## Plan
 1. Telethon 에서 텔레그램 채팅 가져오기 (O)
