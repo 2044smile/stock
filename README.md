@@ -87,19 +87,3 @@ But I use to 'nohup poetry run python get_telethon.py' in docker-compose it's no
 
 ## Reference
 - https://docs.telethon.dev/en/stable/index.html
-
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<h3>20221226<br>
-I had a problem but I solved it.<br>
-Let us start again.
-</h3>
-<h3>20230228~20230305 Travel<br>
-I'm going back to Korea after the trip.
-20230309~20230314 Travel<br>
-I'm going back to Korea after the trip.
-</h3>
