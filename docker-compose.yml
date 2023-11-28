@@ -15,7 +15,7 @@ services:
       - ./.env
     platform: linux/amd64
   db:
-    image: postgres
+    image: postgres:16.1
     container_name: stock_db
     volumes:
       - postgres_db:/var/lib/postgresql/data/
